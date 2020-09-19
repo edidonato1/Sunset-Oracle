@@ -38,7 +38,7 @@ https://openweathermap.org/current
         "temp_max": 307.59,
         "pressure": 1012,
         "humidity": 43
- ```   }
+    }
     
 ## Wireframes
 
