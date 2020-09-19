@@ -43,24 +43,30 @@ https://openweathermap.org/current
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+** See assets_wireframes folder **
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+#### MVP
+- Input form to accept user zip code
+- Basic HTML structure that greets user to the app, and designated areas where output will appear
+- Application receives input, requests specific data from API
+- - Append specific data to body
+- - Run additional data through a function that assigns a numerical score based on the data for that category
+- - Scores from each category will be compiled to an overall score, that returns and appends an overall grade, along with a message to the user determined by the score.
+- Message area is styled using CSS Flexbox
+- Content scales responsively to viewport size
 
-#### MVP 
-*These are examples only. Replace with your own MVP features.*
-
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
+- Display results from only one search at a time
+- Improve responsiveness and overall page aesthetics
+- "Crystal ball" styled area for background where sunset "score" will appear
+- Implement one or more CSS animations
+- "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set.
+- - I know of one API that returns it in the right format, but in the UTC time zone.
+- 
 
-- Add second API
-- Use local storage to save user favorites
 
 ## Project Schedule
 
