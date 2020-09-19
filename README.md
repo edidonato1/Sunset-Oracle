@@ -43,7 +43,7 @@ https://openweathermap.org/current
 
 ## Wireframes
 
-** See assets_wireframes folder **
+** See assets_wireframes folder
 
 ### MVP/PostMVP
 
@@ -65,14 +65,9 @@ https://openweathermap.org/current
 - Implement one or more CSS animations
 - "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set.
 - - I know of one API that returns it in the right format, but in the UTC time zone.
-- 
 
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
@@ -85,13 +80,9 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-** See assets_priority_matrix folder **
+** See assets_priority_matrix folder
 
 ## Timeframes
-
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
@@ -100,11 +91,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Base HTML | M | 2.5hrs| - - |
 | Assign /Compare Scores | H | 8hrs| - - |
 | Append Results | H | 2.5hrs| - -  |
-| Append Data | M | 1hrs| - -  |
+| Append Data | M | 2hrs| - -  |
 | Flexbox Manipulation  | H | 4hrs| - -  |
 | Responsive Design  | H | 4hrs| - -  |
 | Additional CSS | L | 6hrs| - -  |
-| Total | - -  | 34hrs| - -  |
+| Total | - -  | 35hrs| - -  |
 
 ## Code Snippet
 
