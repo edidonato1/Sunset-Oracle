@@ -17,7 +17,7 @@ These messages will append alongside basic information about the zip the user se
 
 https://openweathermap.org/current
 
-{
+```{
     "coord": {
         "lon": -117.12,
         "lat": 32.76
@@ -38,7 +38,7 @@ https://openweathermap.org/current
         "temp_max": 307.59,
         "pressure": 1012,
         "humidity": 43
-    }
+ ```   }
     
 ## Wireframes
 
