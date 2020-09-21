@@ -7,7 +7,7 @@
 
 The app accepts a zip code as an input, the requests data from the OpenWeatherMap API, returning current weather data.  
 
-It then runs specific data (i.e. clouds, humidity, wind speed, et.), and builds a score based on the specifics of the data received.  This score is based on how these conditions align with the conditions that tend to coordinate with more dramatic sunsets.  
+It then runs specific data (i.e. clouds, humidity, wind speed, etc.), and builds a score based on the specifics of the data received.  This score is based on how these conditions align with the conditions that tend to coordinate with more dramatic sunsets.  
 
 Depending on the score, A message will appear that rates how tonight's sunset will be, using either a grade on the "A+ --> F" scale, or perhaps relatively arbitrary metrics. (i.e. "Amazing! Don't miss this one!", "Don't get your hopes up, doesn't look like a good sunset tonight", "Worth a look if you have the time, but don't get too excited")
 
