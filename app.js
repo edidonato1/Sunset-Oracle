@@ -11,50 +11,57 @@ search.addEventListener('click', async (e) => {
     const DATA = RESPONSE.data
     console.log(DATA)
 
+    // Additional API accepts zip and gives city and state
     const zipURL = `http:api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
     const city = zipRESPONSE.data.places[0]['place name']
     const state = zipRESPONSE.data.places[0].state
 
+    // Separate div to append City, State, and Temperature
     const places = document.querySelector('#place') 
     const cityTitle = document.querySelector('#city')
     cityTitle.innerHTML = `${city}, ${state}`
-    
+
+    reset() 
+
+    //Temperature
     const temperature = DATA.main.temp
     let showTemperature = document.querySelector('#temp')
     showTemperature.innerHTML = `${temperature}°F`
-    
+
+    // Append location and temperature data
     places.appendChild(cityTitle)
     places.appendChild(showTemperature)
 
+    // Current weather description
     const description = DATA.weather[0].description
     let showDescription = document.createElement('p')
     showDescription.innerHTML = `Currently: ${description}`
 
-
-
+    // Humidity 
     const humidity = DATA.main.humidity
     let showHumidity = document.createElement('p')
     showHumidity.innerHTML = `Humidity: ${humidity}%`
 
+    // Clouds
     let clouds = DATA.clouds.all
     let showClouds = document.createElement('p')
     showClouds.innerHTML = `Cloud cover: ${clouds}%`;
 
+    // Wind
     let wind = Math.round(DATA.wind.speed) 
     let deg = DATA.wind.deg
     let showWindSpeed = document.createElement('p')
     showWindSpeed.innerHTML = `Wind speed: ${wind} mph ${windDirection(deg)}`
 
-
+    // Append relevant weather data
     const weatherData = document.querySelector('#data')
-  
     weatherData.appendChild(showDescription)
-  
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
 
+    // call compareData()
     compareData(temperature, wind, clouds, description, humidity)
     
   } catch (error) {
@@ -62,6 +69,12 @@ search.addEventListener('click', async (e) => {
   }
 })
 
+function reset() {
+let displayArea = document.querySelector('#data')
+data.innerHTML = null
+}
+
+// Convert API numerical output (degrees) to compass direction
 function windDirection (deg) {
   let direction = ""
 if (deg >= 337.5 || deg < 22.5) {
@@ -84,7 +97,7 @@ if (deg >= 337.5 || deg < 22.5) {
   return direction
 }
 
-
+// Returns score based on API output
 function compareData(temperature, wind, clouds, description, humidity) {
   let score = 0;
 
@@ -95,7 +108,7 @@ function compareData(temperature, wind, clouds, description, humidity) {
   if (temperature > 50 && temperature <= 70) {
     score += 1
   } 
-  console.log(score)
+ 
   // Wind Scores
   if (wind <= 3) {
     score += 10
@@ -115,7 +128,7 @@ function compareData(temperature, wind, clouds, description, humidity) {
   if (wind > 24 && wind <= 30) {
     score += 1
   }
-  console.log(score)
+
   // Cloud Scores
   if (clouds >=30 && clouds <= 70) {
     score += 10
@@ -126,20 +139,26 @@ function compareData(temperature, wind, clouds, description, humidity) {
   if (clouds > 70 && clouds < 90) {
     score += 5
   }
-  console.log(score)
+  
  // Specific descriptor bonuses & detractions
-  if (description == "scattered clouds") {
+  if (description == "scattered clouds" || description == "broken clouds") {
     score += 5
   }
-  if (description == "light rain " || description == "heavy rain") {
+  if (description == "light rain " || description == "moderate rain" || description == "heavy rain") {
     score -= 2
   }
 if (description == "haze") {
   score += 2
 } 
-console.log(score)
+
 // Humidity Scores
-if (humidity >= 30 && humidity <= 50) {
+if (humidity >= 70 && humidity < 90) {
+  score += 3
+}
+if (humidity >= 50 && humidity < 70) {
+  score += 5
+}
+if (humidity >= 30 && humidity < 50) {
   score += 7
 }
 if (humidity >= 20 && humidity < 30) {
@@ -151,7 +170,7 @@ if (humidity >= 10 && humidity < 20) {
 if (humidity >= 5 && humidity < 10) {
   score += 2
 }
-console.log(score)
+return score
 }
 
 
