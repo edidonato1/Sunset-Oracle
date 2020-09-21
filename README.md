@@ -45,6 +45,8 @@ https://openweathermap.org/current
 
 ** See assets_wireframes folder
 
+https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
+
 ### MVP/PostMVP
 
 #### MVP
@@ -81,6 +83,8 @@ https://openweathermap.org/current
 ## Priority Matrix
 
 ** See assets_priority_matrix folder
+
+https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_matrix
 
 ## Timeframes
 
