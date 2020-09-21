@@ -90,8 +90,8 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
-| Add Form | H | 3hrs| - - |
-| Grab Data | H | 3hrs| - -  |
+| Add Form | H | 3hrs| 1hr |
+| Grab Data | H | 3hrs| 1hr |
 | Base HTML | M | 2.5hrs| - - |
 | Assign /Compare Scores | H | 8hrs| - - |
 | Append Results | H | 2.5hrs| - -  |
