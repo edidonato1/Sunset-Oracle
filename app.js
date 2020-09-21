@@ -11,6 +11,17 @@ search.addEventListener('click', async (e) => {
     const DATA = RESPONSE.data
     console.log(DATA)
 
+    const zipURL = `http:api.zippopotam.us/us/${zip}`
+    const zipRESPONSE = await axios.get(zipURL);
+    const city = zipRESPONSE.data.places[0]['place name']
+    const state = zipRESPONSE.data.places[0].state
+    console.log(city, state);
+
+    const places = document.querySelector('#place') 
+    const cityTitle = document.querySelector('#city')
+    cityTitle.innerHTML = `${city}, ${state}`
+    places.appendChild(cityTitle)
+
     const description = DATA.weather[0].description
     let showDescription = document.createElement('p')
     showDescription.innerHTML = `Currently: ${description}`
