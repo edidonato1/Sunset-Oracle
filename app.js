@@ -15,20 +15,23 @@ search.addEventListener('click', async (e) => {
     const zipRESPONSE = await axios.get(zipURL);
     const city = zipRESPONSE.data.places[0]['place name']
     const state = zipRESPONSE.data.places[0].state
-    console.log(city, state);
 
     const places = document.querySelector('#place') 
     const cityTitle = document.querySelector('#city')
     cityTitle.innerHTML = `${city}, ${state}`
+    
+    const temperature = DATA.main.temp
+    let showTemperature = document.querySelector('#temp')
+    showTemperature.innerHTML = `${temperature}°F`
+    
     places.appendChild(cityTitle)
+    places.appendChild(showTemperature)
 
     const description = DATA.weather[0].description
     let showDescription = document.createElement('p')
     showDescription.innerHTML = `Currently: ${description}`
 
-    const temperature = DATA.main.temp
-    let showTemperature = document.createElement('p')
-    showTemperature.innerHTML = `Temperature: ${temperature}°F`
+
 
     const humidity = DATA.main.humidity
     let showHumidity = document.createElement('p')
@@ -38,19 +41,21 @@ search.addEventListener('click', async (e) => {
     let showClouds = document.createElement('p')
     showClouds.innerHTML = `Cloud cover: ${clouds}%`;
 
-    let windSpeed = Math.round(DATA.wind.speed) 
+    let wind = Math.round(DATA.wind.speed) 
     let deg = DATA.wind.deg
     let showWindSpeed = document.createElement('p')
-    showWindSpeed.innerHTML = `Wind speed: ${windSpeed} mph ${windDirection(deg)}`
+    showWindSpeed.innerHTML = `Wind speed: ${wind} mph ${windDirection(deg)}`
 
 
     const weatherData = document.querySelector('#data')
   
     weatherData.appendChild(showDescription)
-    weatherData.appendChild(showTemperature)
+  
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
+
+    compareData(temperature, wind, clouds, description, humidity)
     
   } catch (error) {
     console.log(error)
@@ -80,6 +85,86 @@ if (deg >= 337.5 || deg < 22.5) {
 }
 
 
+function compareData(temperature, wind, clouds, description, humidity) {
+  let score = 0;
+
+  // Bonus for comfortable temperature
+  if (temperature > 70 && temperature < 90) {
+    score += 3
+  }
+  if (temperature > 50 && temperature <= 70) {
+    score += 1
+  } 
+  console.log(score)
+  // Wind Scores
+  if (wind <= 3) {
+    score += 10
+  }
+  if (wind > 3 && wind <= 7) {
+    score += 8
+  }
+  if (wind > 7 && wind <= 12) {
+    score += 6
+  }
+  if (wind > 12 && wind <= 18) {
+    score += 4
+  }
+  if (wind > 18 && wind <= 24) {
+    score +=2
+  }
+  if (wind > 24 && wind <= 30) {
+    score += 1
+  }
+  console.log(score)
+  // Cloud Scores
+  if (clouds >=30 && clouds <= 70) {
+    score += 10
+  } 
+  if (clouds < 30) {
+    score += 5
+  }
+  if (clouds > 70 && clouds < 90) {
+    score += 5
+  }
+  console.log(score)
+ // Specific descriptor bonuses & detractions
+  if (description == "scattered clouds") {
+    score += 5
+  }
+  if (description == "light rain " || description == "heavy rain") {
+    score -= 2
+  }
+if (description == "haze") {
+  score += 2
+} 
+console.log(score)
+// Humidity Scores
+if (humidity >= 30 && humidity <= 50) {
+  score += 7
+}
+if (humidity >= 20 && humidity < 30) {
+  score += 5
+}
+if (humidity >= 10 && humidity < 20) {
+  score += 3
+}
+if (humidity >= 5 && humidity < 10) {
+  score += 2
+}
+console.log(score)
+}
+
+
+// Build score 
+// Perfect conditions: 
+//    Moderate temperature (70-90) -- 3 points
+//    Low wind (< 10) -- 10 points
+//    Cloud coverage between 30 and 70 percent -- 10 points
+//    description - scattered clouds -- 5 points
+//    No fog
+//    Humidity between 30 and 50 percent --  7 points
+
+// Total score/35
 
 
 // Possible cloud conditions: 

@@ -41,6 +41,24 @@ https://openweathermap.org/current
     }
 ```
 
+http://api.zippopotam.us/us/90210
+
+```{
+    "post code": "90210",
+    "country": "United States",
+    "country abbreviation": "US",
+    "places": [
+        {
+            "place name": "Beverly Hills",
+            "longitude": "-118.4065",
+            "state": "California",
+            "state abbreviation": "CA",
+            "latitude": "34.0901"
+        }
+    ]
+}
+```
+
 ## Wireframes
 
 ** See assets_wireframes folder
@@ -95,7 +113,7 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 | Base HTML | M | 2.5hrs| - - |
 | Assign /Compare Scores | H | 8hrs| - - |
 | Append Results | H | 2.5hrs| - -  |
-| Append Data | M | 2hrs| - -  |
+| Append Data | M | 2hrs| 2  |
 | Flexbox Manipulation  | H | 4hrs| - -  |
 | Responsive Design  | H | 4hrs| - -  |
 | Additional CSS | L | 6hrs| - -  |
