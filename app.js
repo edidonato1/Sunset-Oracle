@@ -11,6 +11,14 @@ search.addEventListener('click', async (e) => {
     const DATA = RESPONSE.data
     console.log(DATA)
 
+    const description = DATA.weather[0].description
+    let showDescription = document.createElement('p')
+    showDescription.innerHTML = `Currently: ${description}`
+
+    const temperature = DATA.main.temp
+    let showTemperature = document.createElement('p')
+    showTemperature.innerHTML = `Temperature: ${temperature}°F`
+
     const humidity = DATA.main.humidity
     let showHumidity = document.createElement('p')
     showHumidity.innerHTML = `Humidity: ${humidity}%`
@@ -26,6 +34,9 @@ search.addEventListener('click', async (e) => {
 
 
     const weatherData = document.querySelector('#data')
+  
+    weatherData.appendChild(showDescription)
+    weatherData.appendChild(showTemperature)
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
@@ -59,26 +70,16 @@ if (deg >= 337.5 || deg < 22.5) {
 
 
 
-// async function getData(zip) {
-//   try {
-//     // let zip = input.value;
-//     const URL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&=units=imperial&appid=2f4f1d57fc6cf6ee573d93ac14c4a050`
-//     const RESPONSE = await axios.get(URL);
-//     const DATA = RESPONSE.data
-//     console.log(DATA)
-//     // let clouds = DATA.clouds.all
-//     // addScore(clouds)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
 
-// getData(06410)
+// Possible cloud conditions: 
+// main: "Clear" description: "clear sky"
+// main: "Clouds" decription: "scattered clouds"
+// main: "Smoke" description: "smoke"
+// main: "Clouds" description: "overcast clouds"
+// main: "Rain" description: "light rain"
+// main: "Rain" description: "heavy intensity rain"
+// main: "Haze" description: "haze"
+// main: "Clouds" description: "few clouds"
 
-// const form = document.querySelector('#input-area')
 
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault()
-//   const zip = document.querySelector('#zip').value
-//   getData(zip)
-// })
+
