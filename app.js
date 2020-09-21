@@ -61,29 +61,16 @@ search.addEventListener('click', async (e) => {
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
 
-    // call compareData()
+    // call compareData() within gradeScore()
     const grade = document.querySelector('#grade')
     grade.innerHTML = gradeScore(compareData(temperature, wind, clouds, description, humidity))
-
-
-
+    const finalScore = gradeScore(compareData(temperature, wind, clouds, description, humidity))
+    
     // Compare Data and Score to compile message
-  
-    // const message = (gradeScore(compareData(temperature, wind, clouds, description, humidity)) => {
-    //   const niceOut = () => {
+    const messageText = document.querySelector('#message')
+    messageText.innerHTML = message(finalScore) 
+    
 
-    //   }
-
-    //   if (grade == "A+") {
-    //     return "Better not miss this one! If it stays like this, you're looking at an amazing sunset"
-    //   }
-    //   if (grade == "A") {
-    //     return "Looks like an amazing sunset tonight. 
-    //   }
-    // })
-    
-    
-    
 
   } catch (error) {
     console.log(error)
@@ -229,8 +216,34 @@ if (score < 8 && score >= 5) {
 if (score < 5) {
   grade = "F"
 }
-console.log(grade)
+// console.log(grade)
 return grade
+}
+
+// Creates Message based on letter grade and other conditions
+function message(grade) {
+  let finalMessage = ""
+  const gradeA = "Looks like an amazing sunset tonight!!"
+  const gradeB = "There's a good chance you'll get a great sunset tonight!"
+  const gradeC = "Chances are low, but you could still get a nice sunset this evening!"
+  const gradeD = "Not looking too good, but things could always change."
+  const gradeF = "Stay home and get stuff done. No chasing sunsets tonight."
+  const niceOut = "Looks like a beautiful evening!"
+  if (grade.includes("A"))
+  {
+    finalMessage += gradeA
+  } else if (grade.includes("B")) {
+    finalMessage += gradeB
+  } else if (grade.includes("C")) {
+    finalMessage += gradeC
+  } else if (grade.includes("D")) {
+    finalMessage += gradeD
+  } else if (grade.includes("F")) {
+    finalMessage += gradeF
+  } else if (grade == "A+") {
+    finalMessage += "Conditions are perfect for a stunning sunset this evening!"
+  }
+    return finalMessage
 }
 
 
