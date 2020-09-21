@@ -62,8 +62,29 @@ search.addEventListener('click', async (e) => {
     weatherData.appendChild(showWindSpeed)
 
     // call compareData()
-    compareData(temperature, wind, clouds, description, humidity)
+    const grade = document.querySelector('#grade')
+    grade.innerHTML = gradeScore(compareData(temperature, wind, clouds, description, humidity))
+
+
+
+    // Compare Data and Score to compile message
+  
+    // const message = (gradeScore(compareData(temperature, wind, clouds, description, humidity)) => {
+    //   const niceOut = () => {
+
+    //   }
+
+    //   if (grade == "A+") {
+    //     return "Better not miss this one! If it stays like this, you're looking at an amazing sunset"
+    //   }
+    //   if (grade == "A") {
+    //     return "Looks like an amazing sunset tonight. 
+    //   }
+    // })
     
+    
+    
+
   } catch (error) {
     console.log(error)
   }
@@ -173,9 +194,49 @@ if (humidity >= 5 && humidity < 10) {
 return score
 }
 
+function gradeScore(score) {
+let grade = ""
+if (score >= 32) {
+  grade = "A+"
+}
+if (score < 32 && score >= 29) {
+  grade = "A"
+}
+if (score < 29 && score >= 26) {
+  grade = "A-"
+}
+if (score < 26 && score >= 23) {
+  grade = "B+"
+}
+if (score < 23 && score >= 20) {
+  grade = "B"
+}
+if (score < 20 && score >= 17) {
+  grade = "B-"
+}
+if (score < 17 && score >= 14) {
+  grade = "C+"
+} 
+if (score < 14 && score >= 11) {
+  grade = "C"
+}
+if (score < 11 && score >= 8) {
+  grade = "C-"
+}
+if (score < 8 && score >= 5) {
+  grade = "D"
+}
+if (score < 5) {
+  grade = "F"
+}
+console.log(grade)
+return grade
+}
+
 
 // Build score 
-// Perfect conditions: 
+
+//  Perfect conditions: 
 //    Moderate temperature (70-90) -- 3 points
 //    Low wind (< 10) -- 10 points
 //    Cloud coverage between 30 and 70 percent -- 10 points
@@ -187,6 +248,7 @@ return score
 
 
 // Possible cloud conditions: 
+
 // main: "Clear" description: "clear sky"
 // main: "Clouds" decription: "scattered clouds"
 // main: "Smoke" description: "smoke"
