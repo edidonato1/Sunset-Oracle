@@ -69,7 +69,7 @@ search.addEventListener('click', async (e) => {
     // Compare Data and Score to compile message
     const messageText = document.querySelector('#message')
     messageText.innerHTML = message(finalScore) 
-    
+
 
 
   } catch (error) {
@@ -224,7 +224,7 @@ return grade
 function message(grade) {
   let finalMessage = ""
   const gradeA = "Looks like an amazing sunset tonight!!"
-  const gradeB = "There's a good chance you'll get a great sunset tonight!"
+  const gradeB = "There's a chance you'll get a great sunset tonight!"
   const gradeC = "Chances are low, but you could still get a nice sunset this evening!"
   const gradeD = "Not looking too good, but things could always change."
   const gradeF = "Stay home and get stuff done. No chasing sunsets tonight."
