@@ -1,11 +1,11 @@
 body {
   background: url(assets_photos/sunset.jpg);
   background-position: center-right;
-  /* background-size: 200%; */
+  background-size: 190vh;
+  /* background-size: contain; */
   background-repeat: no-repeat;
   color: white;
   font-family: 'Poiret One'
-  
   }
   
   h1 {
@@ -27,6 +27,9 @@ body {
   }
 
   #zip {
+    font-size: 16px;
+    color:  rgb(46, 1, 46);
+    text-align: center;
     height: 40px;
     margin-bottom: -20px;
     outline: none;
@@ -39,12 +42,13 @@ body {
     font-size: 15px;
   }
 
-  @keyframes disappear {
-    from {background-color: rgba(250, 235, 248, 0.4);}
-    25% {background-color: rgba(248, 183, 98, 0.3)}
-    50% {background-color: rgba(154, 116, 245, 0.5);}
-    75% {background-color: rgba(245, 38, 107, 0.5);}
-    90% {background-color: rgba(241, 143, 129, 0.5)}
+  @keyframes horizon {
+    from {background-color: rgba(247, 185, 238, 0.4);}
+    20% {background-color: rgba(247, 165, 57, 0.3)}
+    40% {background-color: rgba(154, 116, 245, 0.5);}
+    60% {background-color: rgba(247, 107, 153, 0.5);}
+    70% {background-color: rgba(241, 143, 129, 0.5)}
+    90% {background-color: rgba(112, 209, 247, 0.5);}
     to {background-color: rgba(197, 227, 186, 0.5);
         /* border-color: cyan; */
       }
@@ -52,21 +56,20 @@ body {
 
   #search {
     background: rgba(250, 235, 248, 0.4);
+    font-size: 16px;
     height: 55px;
     width: 55px;
     border-style: none;
     border-radius: 50%;
+    outline: none;
     color: white;
-    animation-name: disappear;
-    animation-duration: 3s;
+    animation-name: horizon;
+    animation-duration: 10s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
   }
 
-  
-
 #search:hover {
-  background: rgba(197, 227, 186, 0.5);
   color:  rgb(46, 1, 46);
   animation-play-state: paused;
 }
@@ -138,7 +141,6 @@ body {
   
   #grade {
     padding-top: 10vh;
-    font-family: 'avenir', cursive;
     font-size: 70px;
     text-align: center;
   }
@@ -157,15 +159,8 @@ body {
     h1 {
       font-size: 80px;
     }
-    
-    /* #display {
-      justify-content: space;
-
-    } */
 
     #city {
-      flex-direction: column;
-      flex-wrap: wrap;
       font-size: 30px;
     }
 
@@ -200,8 +195,8 @@ body {
     }
 
     #city {
-      flex-direction: column;
-      flex-wrap: wrap;
+      /* flex-direction: column;
+      flex-wrap: wrap; */
       font-size: 25px;
     }
 
@@ -268,13 +263,6 @@ body {
       height: 50%;
       margin-top: 15px;
     }
-
-    /* #orb {
-      position: absolute;
-      bottom: 0px;
-      left: -10px;
-    } */
-
     
   } */
 
