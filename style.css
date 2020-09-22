@@ -1,7 +1,7 @@
 body {
   background: url(assets_photos/sunset.jpg);
-  background-position: center top;
-  background-size: 200%%;
+  background-position: center-right;
+  /* background-size: 200%; */
   background-repeat: no-repeat;
   color: white;
   font-family: 'Poiret One'
@@ -27,29 +27,51 @@ body {
   }
 
   #zip {
-    height: 30px;
+    height: 40px;
     margin-bottom: -20px;
     outline: none;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    border: 1px solid #white;
+  }
+
+  ::placeholder {
+    color: rgb(117, 92, 113);
+    font-size: 15px;
+  }
+
+  @keyframes disappear {
+    from {background-color: rgba(250, 235, 248, 0.4);}
+    25% {background-color: rgba(248, 183, 98, 0.3)}
+    50% {background-color: rgba(154, 116, 245, 0.5);}
+    75% {background-color: rgba(245, 38, 107, 0.5);}
+    90% {background-color: rgba(241, 143, 129, 0.5)}
+    to {background-color: rgba(197, 227, 186, 0.5);
+        /* border-color: cyan; */
+      }
   }
 
   #search {
-    background: rgba(245, 201, 239, 0.4);
-    padding: 10px;
+    background: rgba(250, 235, 248, 0.4);
+    height: 55px;
+    width: 55px;
     border-style: none;
-    border-radius: 10px;
+    border-radius: 50%;
     color: white;
+    animation-name: disappear;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
   }
+
+  
 
 #search:hover {
   background: rgba(197, 227, 186, 0.5);
   color:  rgb(46, 1, 46);
+  animation-play-state: paused;
 }
   
   #display {
-    /* height: 300px; */
     width: 50%;
     display: flex;
     margin-top: -10px;
@@ -58,7 +80,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
-    /* background: red; */
   }
   
   #place {
@@ -66,7 +87,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    /* background: blue; */
   }
   
   #city {
@@ -118,7 +138,7 @@ body {
   
   #grade {
     padding-top: 10vh;
-    font-family: 'Kumar One', cursive;
+    font-family: 'avenir', cursive;
     font-size: 70px;
     text-align: center;
   }
@@ -138,10 +158,10 @@ body {
       font-size: 80px;
     }
     
-    #display {
+    /* #display {
       justify-content: space;
 
-    }
+    } */
 
     #city {
       flex-direction: column;
