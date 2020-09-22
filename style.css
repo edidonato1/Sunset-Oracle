@@ -1,7 +1,7 @@
 body {
   background: url(assets_photos/sunset.jpg);
   background-position: center top;
-  background-size: 100 vh;
+  background-size: 200%%;
   background-repeat: no-repeat;
   color: white;
   font-family: 'Poiret One'
@@ -30,8 +30,29 @@ body {
   
   #input-area {
     text-align: center;
-    margin-bottom: -20px;
   }
+
+  #zip {
+    height: 30px;
+    margin-bottom: -20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: 1px solid #white;
+  }
+
+  #search {
+    background: rgba(245, 201, 239, 0.4);
+    padding: 10px;
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+  }
+
+#search:hover {
+  background: rgba(197, 227, 186, 0.5);
+  color:  rgb(46, 1, 46);
+}
   
   #display {
     /* height: 300px; */
@@ -41,7 +62,7 @@ body {
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
     /* background: red; */
   }
@@ -51,7 +72,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-  
     /* background: blue; */
   }
   
@@ -60,7 +80,6 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 40px;
-    /* background: rgba(245, 201, 239, 0.4); */
     border-radius: 15px;
     padding: 10px 15px 10px 15px;
   }
@@ -68,14 +87,12 @@ body {
   #temp {
     font-size: 50px;
     margin-top: -10px;
-    /* background: rgba(245, 201, 239, 0.4); */
     border-radius: 15px;
     padding: 20px 15px 20px 15px;
-    width: 30%;
+    width: 20%;
   }
   
   #data {
-    /* background: rgba(245, 201, 239, 0.4); */
     border-radius: 15px;
     padding: 5px 15px 5px 15px;
     height: 50%;
@@ -85,15 +102,16 @@ body {
   
   #orb {
     display: flex;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
+    margin-top: 30px;
     flex-direction: column;
     align-content: flex-start;
-    background: url(assets_photos/smoke.gif);
+    background: url(assets_photos/stars.gif);
     background-position: center;
-    background-size: 200%;
+    background-size: 90%;
     height: 600px;
     width: 600px;
     border-radius: 50%;
@@ -117,4 +135,163 @@ body {
     text-align: center;
     /* background-color: rgba(230, 134, 25, 0.2); */
     border-radius: 15px;
+  }
+
+
+
+  @media only screen and (max-width: 1000px) {
+    h1 {
+      font-size: 60px;
+    }
+    
+    #display {
+      justify-content: space;
+
+    }
+
+    #city {
+      flex-direction: column;
+      flex-wrap: wrap;
+      font-size: 30px;
+    }
+
+    #temp {
+      font-size: 37px;
+    }
+
+    #data {
+      font-size: 20px;
+      height: 25%;
+      margin-top: 20px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 800px) {
+    h1 {
+      font-size: 60px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+    
+    #display {
+      /* flex-direction: column;
+      width: 100%; */
+      justify-content: space;
+
+    }
+
+    #place {
+      display: inline;
+    }
+
+    #city {
+      flex-direction: column;
+      flex-wrap: wrap;
+      font-size: 25px;
+    }
+
+    #temp {
+      font-size: 32px;
+    }
+
+    #data {
+      font-size: 15x;
+      height: 25%;
+      margin-top: 20px;
+      padding: 0px 5px 0px 5px;
+      height: 50%;
+      margin-top: 40px;
+    }
+
+    
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 60px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+    
+    #display {
+      display: block-inline;
+      margin: 0 auto;
+    }
+
+    #place {
+      /* display: inline; */
+      margin: 0 auto;
+      margin-bottom: 0px;
+    }
+
+    #city {
+      font-size: 20px;
+      width: max-content;
+    }
+
+    #temp {
+      font-size: 25px;
+      text-align: left;
+    }
+
+    #data {
+      /* font-size: 12x;
+      position: absolute;
+      top: 200px; */
+      right: 0px;
+      height: 25%;
+      margin-top: 20px;
+      padding: 0px 5px 0px 5px;
+      height: 50%;
+      margin-top: 15px;
+    }
+
+    
+  }
+
+  @media screen and (min-width: 600px;), screen and (max-height: 1000px) {
+    h1 {
+      font-size: 60px;
+    }
+
+    p {
+      font-size: 25px;
+    }
+    
+    #display {
+      /* flex-direction: column;
+      width: 100%; */
+      justify-content: space;
+
+    }
+
+    #place {
+      display: inline;
+    }
+
+    #city {
+      flex-direction: column;
+      flex-wrap: wrap;
+      font-size: 25px;
+    }
+
+    #temp {
+      font-size: 32px;
+    }
+
+    #data {
+      font-size: 15x;
+      height: 25%;
+      margin-top: 20px;
+      padding: 0px 5px 0px 5px;
+      height: 50%;
+      margin-top: 40px;
+    }
+
   }
