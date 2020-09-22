@@ -6,20 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src="./app.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kumar+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>SUNSET</title>
 </head>
 
 <body>
   <header>
-    <h1>Welcome to Catch The Sunset</h1>
+    <h1>Sunset Oracle</h1>
     <h2>Never Miss a Perfect Sunset Again</h2>
-  </header>
-  <div id="display">
     <form id="input-area">
       <input type="text" name="zip" id="zip" placeholder="enter zip code">
       <input type="submit" id="search">
     </form>
-    <div id="place">
+  </header>
+  <div id="display">
+    <div id="place" class="weather-data">
       <h3 id="city"></h3>
       <p id="temp"></p>
     </div>

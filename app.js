@@ -18,15 +18,18 @@ search.addEventListener('click', async (e) => {
     const state = zipRESPONSE.data.places[0].state
 
     // Separate div to append City, State, and Temperature
-    const places = document.querySelector('#place') 
+    const places = document.querySelector('#place')
     const cityTitle = document.querySelector('#city')
-    cityTitle.innerHTML = `${city}, ${state}`
+    cityTitle.style.background = `rgba(245, 201, 239, 0.4)`
+    cityTitle.innerHTML = `${city}, 
+    ${state}`
 
-    reset() 
+    reset()
 
     //Temperature
-    const temperature = DATA.main.temp
+    const temperature = Math.round(DATA.main.temp)
     let showTemperature = document.querySelector('#temp')
+    showTemperature.style.background = `rgba(245, 201, 239, 0.4)`
     showTemperature.innerHTML = `${temperature}°F`
 
     // Append location and temperature data
@@ -49,13 +52,14 @@ search.addEventListener('click', async (e) => {
     showClouds.innerHTML = `Cloud cover: ${clouds}%`;
 
     // Wind
-    let wind = Math.round(DATA.wind.speed) 
+    let wind = Math.round(DATA.wind.speed)
     let deg = DATA.wind.deg
     let showWindSpeed = document.createElement('p')
     showWindSpeed.innerHTML = `Wind speed: ${wind} mph ${windDirection(deg)}`
 
     // Append relevant weather data
     const weatherData = document.querySelector('#data')
+    weatherData.style.background = `rgba(245, 201, 239, 0.4)`
     weatherData.appendChild(showDescription)
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
@@ -65,10 +69,10 @@ search.addEventListener('click', async (e) => {
     const grade = document.querySelector('#grade')
     grade.innerHTML = gradeScore(compareData(temperature, wind, clouds, description, humidity))
     const finalScore = gradeScore(compareData(temperature, wind, clouds, description, humidity))
-    
+
     // Compare Data and Score to compile message
     const messageText = document.querySelector('#message')
-    messageText.innerHTML = message(finalScore) 
+    messageText.innerHTML = message(finalScore)
 
 
 
@@ -78,14 +82,14 @@ search.addEventListener('click', async (e) => {
 })
 
 function reset() {
-let displayArea = document.querySelector('#data')
-data.innerHTML = null
+  let displayArea = document.querySelector('#data')
+  data.innerHTML = null
 }
 
 // Convert API numerical output (degrees) to compass direction
-function windDirection (deg) {
+function windDirection(deg) {
   let direction = ""
-if (deg >= 337.5 || deg < 22.5) {
+  if (deg >= 337.5 || deg < 22.5) {
     direction = "N"
   } else if (deg >= 22.5 && deg < 67.5) {
     direction = "NE"
@@ -98,7 +102,7 @@ if (deg >= 337.5 || deg < 22.5) {
   } else if (deg >= 202.5 && deg < 247.5) {
     direction = "SW"
   } else if (deg >= 247.5 && deg < 292.5) {
-    direction = "W" 
+    direction = "W"
   } else if (deg >= 292.5 && deg < 337.5) {
     direction = "NW"
   }
@@ -115,8 +119,8 @@ function compareData(temperature, wind, clouds, description, humidity) {
   }
   if (temperature > 50 && temperature <= 70) {
     score += 1
-  } 
- 
+  }
+
   // Wind Scores
   if (wind <= 3) {
     score += 10
@@ -131,93 +135,93 @@ function compareData(temperature, wind, clouds, description, humidity) {
     score += 4
   }
   if (wind > 18 && wind <= 24) {
-    score +=2
+    score += 2
   }
   if (wind > 24 && wind <= 30) {
     score += 1
   }
 
   // Cloud Scores
-  if (clouds >=30 && clouds <= 70) {
+  if (clouds >= 30 && clouds <= 70) {
     score += 10
-  } 
+  }
   if (clouds < 30) {
     score += 5
   }
   if (clouds > 70 && clouds < 90) {
     score += 5
   }
-  
- // Specific descriptor bonuses & detractions
+
+  // Specific descriptor bonuses & detractions
   if (description == "scattered clouds" || description == "broken clouds") {
     score += 5
   }
   if (description == "light rain " || description == "moderate rain" || description == "heavy rain") {
     score -= 2
   }
-if (description == "haze") {
-  score += 2
-} 
+  if (description == "haze") {
+    score += 2
+  }
 
-// Humidity Scores
-if (humidity >= 70 && humidity < 90) {
-  score += 3
-}
-if (humidity >= 50 && humidity < 70) {
-  score += 5
-}
-if (humidity >= 30 && humidity < 50) {
-  score += 7
-}
-if (humidity >= 20 && humidity < 30) {
-  score += 5
-}
-if (humidity >= 10 && humidity < 20) {
-  score += 3
-}
-if (humidity >= 5 && humidity < 10) {
-  score += 2
-}
-return score
+  // Humidity Scores
+  if (humidity >= 70 && humidity < 90) {
+    score += 3
+  }
+  if (humidity >= 50 && humidity < 70) {
+    score += 5
+  }
+  if (humidity >= 30 && humidity < 50) {
+    score += 7
+  }
+  if (humidity >= 20 && humidity < 30) {
+    score += 5
+  }
+  if (humidity >= 10 && humidity < 20) {
+    score += 3
+  }
+  if (humidity >= 5 && humidity < 10) {
+    score += 2
+  }
+  return score
 }
 
 function gradeScore(score) {
-let grade = ""
-if (score >= 32) {
-  grade = "A+"
-}
-if (score < 32 && score >= 29) {
-  grade = "A"
-}
-if (score < 29 && score >= 26) {
-  grade = "A-"
-}
-if (score < 26 && score >= 23) {
-  grade = "B+"
-}
-if (score < 23 && score >= 20) {
-  grade = "B"
-}
-if (score < 20 && score >= 17) {
-  grade = "B-"
-}
-if (score < 17 && score >= 14) {
-  grade = "C+"
-} 
-if (score < 14 && score >= 11) {
-  grade = "C"
-}
-if (score < 11 && score >= 8) {
-  grade = "C-"
-}
-if (score < 8 && score >= 5) {
-  grade = "D"
-}
-if (score < 5) {
-  grade = "F"
-}
-// console.log(grade)
-return grade
+  let grade = ""
+  if (score >= 32) {
+    grade = "A+"
+  }
+  if (score < 32 && score >= 29) {
+    grade = "A"
+  }
+  if (score < 29 && score >= 26) {
+    grade = "A-"
+  }
+  if (score < 26 && score >= 23) {
+    grade = "B+"
+  }
+  if (score < 23 && score >= 20) {
+    grade = "B"
+  }
+  if (score < 20 && score >= 17) {
+    grade = "B-"
+  }
+  if (score < 17 && score >= 14) {
+    grade = "C+"
+  }
+  if (score < 14 && score >= 11) {
+    grade = "C"
+  }
+  if (score < 11 && score >= 8) {
+    grade = "C-"
+  }
+  if (score < 8 && score >= 5) {
+    grade = "D"
+  }
+  if (score < 5) {
+    grade = "F"
+  }
+  // console.log(grade)
+  return grade
 }
 
 // Creates Message based on letter grade and other conditions
@@ -229,8 +233,7 @@ function message(grade) {
   const gradeD = "Not looking too good, but things could always change."
   const gradeF = "Stay home and get stuff done. No chasing sunsets tonight."
   const niceOut = "Looks like a beautiful evening!"
-  if (grade.includes("A"))
-  {
+  if (grade.includes("A")) {
     finalMessage += gradeA
   } else if (grade.includes("B")) {
     finalMessage += gradeB
@@ -243,7 +246,7 @@ function message(grade) {
   } else if (grade == "A+") {
     finalMessage += "Conditions are perfect for a stunning sunset this evening!"
   }
-    return finalMessage
+  return finalMessage
 }
 
 

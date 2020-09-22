@@ -1,0 +1,120 @@
+body {
+  background: url(assets_photos/sunset.jpg);
+  background-position: center top;
+  background-size: 100 vh;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: 'Poiret One'
+  
+  }
+  
+  header {
+  /* background: rgba(245, 201, 239, 0.4); */
+  /* padding-top: 10px;
+  padding-bottom: 20px; */
+  }
+  
+  h1 {
+  text-align: center;
+  font-size: 90px;
+  margin-bottom: 0;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  p {
+  font-size: 26px;
+  }
+  
+  #input-area {
+    text-align: center;
+    margin-bottom: -20px;
+  }
+  
+  #display {
+    /* height: 300px; */
+    width: 50%;
+    display: flex;
+    margin-top: -10px;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    /* background: red; */
+  }
+  
+  #place {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+    /* background: blue; */
+  }
+  
+  #city {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 40px;
+    /* background: rgba(245, 201, 239, 0.4); */
+    border-radius: 15px;
+    padding: 10px 15px 10px 15px;
+  }
+  
+  #temp {
+    font-size: 50px;
+    margin-top: -10px;
+    /* background: rgba(245, 201, 239, 0.4); */
+    border-radius: 15px;
+    padding: 20px 15px 20px 15px;
+    width: 30%;
+  }
+  
+  #data {
+    /* background: rgba(245, 201, 239, 0.4); */
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    height: 50%;
+    margin-top: 40px;
+  }
+  
+  
+  #orb {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-content: flex-start;
+    background: url(assets_photos/smoke.gif);
+    background-position: center;
+    background-size: 200%;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    border: 5px;
+    border-style: solid;
+    border-color: rgba(248, 227, 245, 0.3);
+    opacity: .85;
+  }
+  
+  #grade {
+    padding-top: 120px;
+    font-family: 'Kumar One', cursive;
+    font-size: 90px;
+    text-align: center;
+  }
+  
+  #message {
+    margin: 40px;
+    padding: 10px 5px 10px 5px;
+    font-size: 30px;
+    text-align: center;
+    /* background-color: rgba(230, 134, 25, 0.2); */
+    border-radius: 15px;
+  }
