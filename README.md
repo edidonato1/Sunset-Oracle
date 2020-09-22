@@ -111,7 +111,7 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 | Add Form | H | 3hrs| 1hr |
 | Grab Data | H | 3hrs| 1hr |
 | Base HTML | M | 2.5hrs| 1hr |
-| Assign /Compare Scores | H | 8hrs| 2hrs |
+| Assign /Compare Scores | H | 8hrs| 3hrs |
 | Append Results | H | 2.5hrs| 1hr  |
 | Append Data | M | 2hrs| 1hr  |
 | Flexbox Manipulation  | H | 4hrs| - -  |
