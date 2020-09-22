@@ -8,12 +8,6 @@ body {
   
   }
   
-  header {
-  /* background: rgba(245, 201, 239, 0.4); */
-  /* padding-top: 10px;
-  padding-bottom: 20px; */
-  }
-  
   h1 {
   text-align: center;
   font-size: 90px;
@@ -123,18 +117,17 @@ body {
 
   
   #grade {
-    padding-top: 120px;
+    padding-top: 10vh;
     font-family: 'Kumar One', cursive;
-    font-size: 90px;
+    font-size: 70px;
     text-align: center;
   }
   
   #message {
-    margin: 40px;
+    margin: 20px 40px 40px 40px;
     padding: 10px 5px 10px 5px;
     font-size: 30px;
     text-align: center;
-    /* background-color: rgba(230, 134, 25, 0.2); */
     border-radius: 15px;
   }
 
@@ -142,7 +135,7 @@ body {
 
   @media only screen and (max-width: 1000px) {
     h1 {
-      font-size: 60px;
+      font-size: 80px;
     }
     
     #display {
@@ -205,13 +198,23 @@ body {
       margin-top: 40px;
     }
 
+    #orb {
+      position: absolute;
+      bottom: 0px;
+      left: -10px;
+    }
+
+
+    #grade {
+      font-size: 40px;
+    }
     
   }
 
 
   @media only screen and (max-width: 600px) {
     h1 {
-      font-size: 60px;
+      font-size: 50px;
     }
 
     p {
@@ -246,6 +249,11 @@ body {
       margin-top: 15px;
     }
 
+    /* #orb {
+      position: absolute;
+      bottom: 0px;
+      left: -10px;
+    } */
 
     
   } */
@@ -274,11 +282,6 @@ body {
       font-size: 25px;
     }
 
-    #orb {
-      height: 50vh;
-      width: 50vh;
-    }
-
     #temp {
       font-size: 32px;
     }
@@ -292,4 +295,19 @@ body {
       margin-top: 40px;
     }
 
+    #grade {
+      font-size: 40px;
+    }
+
   } 
+
+  @media screen and (max-height: 600px;) {
+    p {
+      font-size: 18px;
+    }
+
+    #grade {
+      font-size: 70px;
+      padding-top: 50px;
+    }
+  }
