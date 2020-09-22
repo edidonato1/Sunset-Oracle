@@ -2,7 +2,6 @@ body {
   background: url(assets_photos/sunset.jpg);
   background-position: center-right;
   background-size: 190vh;
-  /* background-size: contain; */
   background-repeat: no-repeat;
   color: white;
   font-family: 'Poiret One'
@@ -26,6 +25,12 @@ body {
     text-align: center;
   }
 
+  @keyframes send-data {
+    from {height: 40px}
+    50% {height: 0px}
+    to {height: 40px}
+  }
+
   #zip {
     font-size: 16px;
     color:  rgb(46, 1, 46);
@@ -35,6 +40,11 @@ body {
     outline: none;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+  }
+
+  .send {
+    animation-name: send-data;
+    animation-duration: 2s;
   }
 
   ::placeholder {
@@ -173,6 +183,10 @@ body {
       height: 25%;
       margin-top: 20px;
     }
+
+    #message {
+      font-size: 28px;
+    }
     
   }
 
@@ -219,9 +233,13 @@ body {
       left: -10px;
     }
 
-
+/* 
     #grade {
       font-size: 40px;
+    } */
+
+    #message {
+      font-size: 26px;
     }
     
   }
@@ -262,6 +280,10 @@ body {
       padding: 0px 5px 0px 5px;
       height: 50%;
       margin-top: 15px;
+    }
+
+    #message {
+      font-size: 24px;
     }
     
   } */
@@ -309,13 +331,40 @@ body {
 
   } 
 
-  @media screen and (max-height: 600px;) {
-    p {
-      font-size: 18px;
+  @media screen and (max-height: 800px) {
+    #message {
+      font-size: 24px;
     }
 
     #grade {
       font-size: 70px;
       padding-top: 50px;
+    }
+  }
+
+  @media screen and (max-height: 600px) {
+    body {
+      background-size: 200vh;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    #city {
+      font-size: 20px;
+    }
+
+    #temp {
+      font-size: 32px;
+    }
+
+    #grade {
+      font-size: 70px;
+      padding-top: 50px;
+    }
+
+    #message {
+      font-size: 18px;
     }
   }

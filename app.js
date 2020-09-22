@@ -68,12 +68,15 @@ search.addEventListener('click', async (e) => {
     // call compareData() within gradeScore()
     const grade = document.querySelector('#grade')
     grade.innerHTML = gradeScore(compareData(temperature, wind, clouds, description, humidity))
+    let score = compareData(temperature, wind, clouds, description, humidity)
+
+    // SCORE
+    console.log(score)
     const finalScore = gradeScore(compareData(temperature, wind, clouds, description, humidity))
 
     // Compare Data and Score to compile message
     const messageText = document.querySelector('#message')
-    messageText.innerHTML = message(finalScore)
-
+    messageText.innerHTML = message(finalScore) + "<br><br>" + customMessage(score, temperature, description)
 
 
   } catch (error) {
@@ -227,12 +230,11 @@ function gradeScore(score) {
 // Creates Message based on letter grade and other conditions
 function message(grade) {
   let finalMessage = ""
-  const gradeA = "Looks like an amazing sunset tonight!!"
-  const gradeB = "There's a chance you'll get a great sunset tonight!"
-  const gradeC = "Chances are low, but you could still get a nice sunset this evening!"
-  const gradeD = "Not looking too good, but things could always change."
-  const gradeF = "Stay home and get stuff done. No chasing sunsets tonight."
-  const niceOut = "Looks like a beautiful evening!"
+  const gradeA = "Looks like an amazing sunset tonight!!\n"
+  const gradeB = "There's a chance you'll get a great sunset tonight!\n"
+  const gradeC = "Chances are low, but you could still get a nice sunset this evening!\n"
+  const gradeD = "Not looking too good, but things could always change.\n"
+  const gradeF = "Stay home and get stuff done. No chasing sunsets tonight.\n"
   if (grade.includes("A")) {
     finalMessage += gradeA
   } else if (grade.includes("B")) {
@@ -248,6 +250,18 @@ function message(grade) {
   }
   return finalMessage
 }
+
+function customMessage(score, temp, description) {
+  let addMessage = ""
+  const niceOut = "it looks like a beautiful evening!"
+  if (score <= 11 && temp > 70 && description == "clear sky") {
+    addMessage += `  However, ${niceOut}`
+  } else if (score > 11 && temp > 70 && description == "clear sky") {
+    addMessage += `  And, ${niceOut}`
+  }
+  return addMessage
+}
+
 
 
 // Build score 
