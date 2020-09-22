@@ -10,6 +10,9 @@ search.addEventListener('click', async (e) => {
     const RESPONSE = await axios.get(URL);
     const DATA = RESPONSE.data
     console.log(DATA)
+    reset()
+
+
 
     // Additional API accepts zip and gives city and state
     const zipURL = `http:api.zippopotam.us/us/${zip}`
@@ -24,13 +27,15 @@ search.addEventListener('click', async (e) => {
     cityTitle.innerHTML = `${city}, 
     ${state}`
 
-    reset()
+
+    searchAnimation()
+    // input.classList.add('send')
 
     //Temperature
     const temperature = Math.round(DATA.main.temp)
     let showTemperature = document.querySelector('#temp')
     showTemperature.style.background = `rgba(245, 201, 239, 0.4)`
-    showTemperature.innerHTML = `${temperature}°F`
+    showTemperature.innerHTML = `${temperature} °F`
 
     // Append location and temperature data
     places.appendChild(cityTitle)
@@ -78,14 +83,28 @@ search.addEventListener('click', async (e) => {
     const messageText = document.querySelector('#message')
     messageText.innerHTML = message(finalScore) + "<br><br>" + customMessage(score, temperature, description)
 
+    // input.classList.toggle('send')
 
   } catch (error) {
     console.log(error)
   }
 })
 
+
+// Animation
+function searchAnimation() {
+  input.classList.add('send')
+  setTimeout(function () { input.value = '' }, 1000)
+}
+
+
+// ** RESET ANIMATION FUNTION ********
+
 function reset() {
   let displayArea = document.querySelector('#data')
+  let searchButton = document.querySelector('#zip')
+  searchButton.classList.remove('send')
+
   data.innerHTML = null
 }
 
