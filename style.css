@@ -414,11 +414,9 @@ body {
     text-align: center;
   }
   p {
-    font-size: 12px;
+    font-size: 14px;
     }
 
-
-    
     #zip {
       font-size: 12px;
       font-family: "Poiret One", "avenir";
@@ -445,13 +443,13 @@ body {
   
     #display {
       display: flex;
-      flex-direction: column;
       flex-wrap: wrap;
-      width: 80vw;
-      height: 80%;
+      width: 90%;
+      height: 200px;
       margin: 0 auto;
-      align-content: flex-start;
-      background: gray;
+      align-content: space-between;
+      justify-content: flex-start;
+      /* background: gray; */
     }
     
     #place {
@@ -459,31 +457,33 @@ body {
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: flex-start;
-      background: yellow;
+      /* background: yellow; */
     }
     
     #city {
-      font-size: 14px;
+      font-size: 18px;
       border-radius: 15px;
       padding: 10px 15px 10px 15px;
-      background: green;
+      /* background: green; */
     }
     
     #temp {
-      font-size: 18px;
+      font-size: 22px;
       margin-top: -10px;
       border-radius: 15px;
       padding: 20px 15px 20px 15px;
       width: 35%;
-      background: red;
+      /* background: red; */
     }
     
     #data {
+      font-size: 22px; 
       border-radius: 15px;
       padding: 5px 15px 5px 15px;
-      height: 50%;
-      margin-top: 40px;
-      background: blue;
+      height: 65%;
+      margin-top: 70px;
+      margin-left: -80px;
+      /* background: blue; */
     }
     
     /*
