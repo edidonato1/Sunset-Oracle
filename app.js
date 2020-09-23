@@ -12,8 +12,6 @@ search.addEventListener('click', async (e) => {
     console.log(DATA)
     reset()
 
-
-
     // Additional API accepts zip and gives city and state
     const zipURL = `http:api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
@@ -33,7 +31,6 @@ search.addEventListener('click', async (e) => {
     const temperature = Math.round(DATA.main.temp)
     let showTemperature = document.querySelector('#temp')
     hotInHere(temperature, showTemperature)
-    // showTemperature.style.background = `rgba(245, 201, 239, 0.5)`
     showTemperature.innerHTML = `${temperature} °F`
 
     // Append location and temperature data
@@ -69,20 +66,27 @@ search.addEventListener('click', async (e) => {
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
 
-    // call compareData() within gradeScore()
+    // *** Testing Percentage Score  **** DELETE LATER IF UNUSED
+    // vvvv
+
+
+
+
     const grade = document.querySelector('#grade')
-    grade.innerHTML = gradeScore(compareData(temperature, wind, clouds, description, humidity))
     let score = compareData(temperature, wind, clouds, description, humidity)
 
-    // SCORE
-    console.log(score)
-    const finalScore = gradeScore(compareData(temperature, wind, clouds, description, humidity))
+    const percentScore = (score) => Math.round((score / 35) * 100)
+    grade.innerHTML = percentScore(score)
+    console.log(percentScore(score))
+
+
+    const finalScore = compareData(temperature, wind, clouds, description, humidity)
+
 
     // Compare Data and Score to compile message
     const messageText = document.querySelector('#message')
-    messageText.innerHTML = message(finalScore) + "<br><br>" + customMessage(score, temperature, description)
-
-    // input.classList.toggle('send')
+    console.log(finalMessage(finalScore))
+    messageText.innerHTML = finalMessage(finalScore) + "<br><br>" + customMessage(score, temperature, description)
 
   } catch (error) {
     console.log(error)
@@ -134,151 +138,102 @@ function compareData(temperature, wind, clouds, description, humidity) {
   // Bonus for comfortable temperature
   if (temperature > 70 && temperature < 90) {
     score += 3
-  }
-  if (temperature > 50 && temperature <= 70) {
+  } else if (temperature > 50 && temperature <= 70) {
     score += 1
   }
 
   // Wind Scores
   if (wind <= 3) {
     score += 10
-  }
-  if (wind > 3 && wind <= 7) {
+  } else if (wind > 3 && wind <= 7) {
     score += 8
-  }
-  if (wind > 7 && wind <= 12) {
+  } else if (wind > 7 && wind <= 12) {
     score += 6
-  }
-  if (wind > 12 && wind <= 18) {
+  } else if (wind > 12 && wind <= 18) {
     score += 4
-  }
-  if (wind > 18 && wind <= 24) {
+  } else if (wind > 18 && wind <= 24) {
     score += 2
-  }
-  if (wind > 24 && wind <= 30) {
+  } else if (wind > 24 && wind <= 30) {
     score += 1
   }
 
   // Cloud Scores
   if (clouds >= 30 && clouds <= 70) {
     score += 10
-  }
-  if (clouds < 30) {
+  } else if (clouds < 30) {
     score += 5
-  }
-  if (clouds > 70 && clouds < 90) {
+  } else if (clouds > 70 && clouds < 90) {
     score += 5
   }
 
   // Specific descriptor bonuses & detractions
   if (description == "scattered clouds" || description == "broken clouds") {
     score += 5
-  }
-  if (description == "light rain " || description == "moderate rain" || description == "heavy rain") {
+  } else if (description == "light rain " || description == "moderate rain" || description == "heavy rain") {
     score -= 2
-  }
-  if (description == "haze") {
+  } else if (description == "haze") {
     score += 2
   }
 
   // Humidity Scores
   if (humidity >= 70 && humidity < 90) {
     score += 3
-  }
-  if (humidity >= 50 && humidity < 70) {
+  } else if (humidity >= 50 && humidity < 70) {
     score += 5
-  }
-  if (humidity >= 30 && humidity < 50) {
+  } else if (humidity >= 30 && humidity < 50) {
     score += 7
-  }
-  if (humidity >= 20 && humidity < 30) {
+  } else if (humidity >= 20 && humidity < 30) {
     score += 5
-  }
-  if (humidity >= 10 && humidity < 20) {
+  } else if (humidity >= 10 && humidity < 20) {
     score += 3
-  }
-  if (humidity >= 5 && humidity < 10) {
+  } else if (humidity >= 5 && humidity < 10) {
     score += 2
   }
   return score
 }
 
-// Assign letter grade based on numeric score
-function gradeScore(score) {
-  let grade = ""
+
+
+function finalMessage(score) {
+  let message = ""
   if (score >= 32) {
-    grade = "A+"
+    message = "Chances are high you'll get an amazing sunset tonight!!"
+  } else if (score < 32 && score >= 29) {
+    message = "Get your camera ready, the odds are in your favor."
+  } else if (score < 29 && score >= 26) {
+    message = "If these conditions hold, you'll looking at an awesome sunset tonight!"
+  } else if (score < 26 && score >= 23) {
+    message = "There's a chance you'll get a great sunset tonight."
+  } else if (score < 23 && score >= 20) {
+    message = "No promises, but it your conditions look pretty good."
+  } else if (score < 20 && score >= 17) {
+    message = "Don't get your hopes up, but we still like your odds."
+  } else if (score < 17 && score >= 14) {
+    message = "Not a bad chance. You could get lucky!"
+  } else if (score < 14 && score >= 11) {
+    message = "Chances are low, but you could still get a nice sunset this evening!"
+  } else if (score < 11 && score >= 8) {
+    message = "A stunning sunset doesn't look likely, but conditions could change."
+  } else if (score < 8 && score >= 5) {
+    message = "Not looking too likely."
+  } else if (score < 5) {
+    message = "Stay home and get stuff done. No chasing sunsets tonight."
   }
-  if (score < 32 && score >= 29) {
-    grade = "A"
-  }
-  if (score < 29 && score >= 26) {
-    grade = "A-"
-  }
-  if (score < 26 && score >= 23) {
-    grade = "B+"
-  }
-  if (score < 23 && score >= 20) {
-    grade = "B"
-  }
-  if (score < 20 && score >= 17) {
-    grade = "B-"
-  }
-  if (score < 17 && score >= 14) {
-    grade = "C+"
-  }
-  if (score < 14 && score >= 11) {
-    grade = "C"
-  }
-  if (score < 11 && score >= 8) {
-    grade = "C-"
-  }
-  if (score < 8 && score >= 5) {
-    grade = "D"
-  }
-  if (score < 5) {
-    grade = "F"
-  }
-  // console.log(grade)
-  return grade
+  return message
 }
 
-// Creates Message based on letter grade and other conditions
-function message(grade) {
-  let finalMessage = ""
-  const gradeA = "Looks like an amazing sunset tonight!!\n"
-  const gradeB = "There's a chance you'll get a great sunset tonight!\n"
-  const gradeC = "Chances are low, but you could still get a nice sunset this evening!\n"
-  const gradeD = "Not looking too good, but things could always change.\n"
-  const gradeF = "Stay home and get stuff done. No chasing sunsets tonight.\n"
-  if (grade.includes("A")) {
-    finalMessage += gradeA
-  } else if (grade.includes("B")) {
-    finalMessage += gradeB
-  } else if (grade.includes("C")) {
-    finalMessage += gradeC
-  } else if (grade.includes("D")) {
-    finalMessage += gradeD
-  } else if (grade.includes("F")) {
-    finalMessage += gradeF
-  } else if (grade == "A+") {
-    finalMessage += "Conditions are perfect for a stunning sunset this evening!"
-  }
-  return finalMessage
-}
 
 // Add custom messages for certain weather conditions
 function customMessage(score, temp, description) {
   let addMessage = ""
   const niceOut = "it looks like a beautiful evening!"
-  if (score <= 11 && temp > 70 && description == "clear sky") {
+  if (score <= 17 && temp > 70 && description == "clear sky") {
     addMessage += `  However, ${niceOut}`
-  } else if (score > 11 && temp > 70 && description == "clear sky") {
+  } else if (score > 17 && temp > 70 && description == "clear sky") {
     addMessage += `  And, ${niceOut}`
   }
   return addMessage
 }
-
 
 // Background color for temp pTag changes based on temperature
 function hotInHere(temp, element) {

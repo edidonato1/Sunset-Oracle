@@ -241,10 +241,6 @@ body {
       justify-content: space;
     }
 
-    #place {
-      display: inline;
-    }
-
     #city {
       font-size: 25px;
     }
@@ -436,9 +432,7 @@ body {
   
     #zip {
       font-size: 16px;
-
       height: 30px;
-
     }
   
     ::placeholder {
@@ -453,23 +447,16 @@ body {
     }
   
     #display {
-      /* overflow: hidden; */
       object-fit: contain;
-      display: flex;
       flex-wrap: wrap;
       width: 100%;
       margin: 0 auto;
       margin-top: 10px;
       align-content: space-between;
       justify-content: flex-start;
-      /* background: gray; */
     }
 
     #place {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: flex-start;
       align-items: space-around;
     }
     
@@ -497,40 +484,25 @@ body {
       height: 65%;
       margin-top: 75px;
       margin-left: -60px;
-      /* margin-right: 5px; */
-      /* background: blue; */
     }
-    
     
     #orb {
       left: 0;
       margin: 0 auto;
       margin-bottom: 10px;
       margin-top: 30px;
-      /* start here */
-      flex-direction: column;
-      align-content: flex-start;
-      background: url(assets_photos/stars.gif);
-      background-position: center;
-      background-size: 90%;
-      /* ketp */
       height: 45.3vh;
       width: 45.3vh;
 
     }
   
     #grade {
-      padding-top: 5vh;
-      font-size: 70px;
-      text-align: center;
+      padding-top: 8vh;
     }
     
     #message {
-      margin: 20px 40px 40px 40px;
-      padding: 10px 5px 10px 5px;
       font-size: 25px;
-      text-align: center;
-      border-radius: 15px;
     } 
 
 }
+
