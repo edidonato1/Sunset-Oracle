@@ -169,7 +169,7 @@ body {
 
   /* Queries to push orb left as elements close in */
 
-  @media screen and (max-width: 1200px) and (max-height: 850px) {
+   @media screen and (max-width: 1200px) and (max-height: 850px) {
     #orb {
       left: 25%;
     }
@@ -197,6 +197,11 @@ body {
       left: 20%;
     }
   } 
+  @media screen and (min-width: 1000px) and (max-height: 600px) {
+    #orb {
+      left: 34%;
+    }
+  }
 
   @media only screen and (max-width: 1000px) {
     h1 {
@@ -353,11 +358,6 @@ body {
       font-size: 32px;
     }
 
-    #orb {
-      bottom: 0px;
-      left: -10px;
-    }
-
     #data {
       font-size: 15x;
       height: 25%;
@@ -368,11 +368,11 @@ body {
     }
 
     #grade {
-      font-size: 40px;
+      font-size: 70px;
     }
 
   } 
-
+/* 
   @media screen and (max-height: 800px) {
     #message {
       font-size: 24px;
@@ -382,7 +382,7 @@ body {
       font-size: 70px;
       padding-top: 50px;
     }
-  }
+  } */
 
   @media screen and (max-height: 600px) {
     p {
