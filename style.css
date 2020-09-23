@@ -4,12 +4,12 @@ body {
   background-size: 190vh;
   background-repeat: no-repeat;
   color: white;
-  font-family: 'Poiret One'
+  font-family: 'Poiret One', 'avenir'
   }
   
   h1 {
   text-align: center;
-  font-size: 90px;
+  font-size: 80px;
   margin-bottom: 0;
   }
   
@@ -25,16 +25,17 @@ body {
     text-align: center;
   }
 
-  @keyframes send-data {
+  @keyframes blink {
     from {height: 40px}
-    50% {height: 0px}
+    45% {height: 0px}
     55% {height: 0px}
     to {height: 40px}
   }
 
   #zip {
-    font-size: 16px;
-    color:  rgb(46, 1, 46);
+    font-size: 18px;
+    font-family: "Poiret One", "avenir";
+    color:  rgb(20, 0, 20);
     text-align: center;
     height: 40px;
     margin-bottom: -20px;
@@ -45,8 +46,10 @@ body {
   }
 
   .send {
-    animation-name: send-data;
+    font-family: "Poiret One", "avenir";
+    animation-name: blink;
     animation-duration: 2s;
+    animation-timing-function: linear;
   }
 
   ::placeholder {
@@ -55,19 +58,17 @@ body {
   }
 
   @keyframes horizon {
-    from {background-color: rgba(247, 185, 238, 0.4);}
-    20% {background-color: rgba(247, 165, 57, 0.3)}
-    40% {background-color: rgba(154, 116, 245, 0.5);}
-    60% {background-color: rgba(247, 107, 153, 0.5);}
-    70% {background-color: rgba(241, 143, 129, 0.5)}
-    90% {background-color: rgba(112, 209, 247, 0.5);}
-    to {background-color: rgba(197, 227, 186, 0.5);
-        /* border-color: cyan; */
-      }
+    from {background-color: rgba(247, 185, 238, 0.6)}
+    20% {background-color: rgba(247, 165, 57, 0.6)}
+    40% {background-color: rgba(154, 116, 245, 0.6)}
+    60% {background-color: rgba(247, 107, 153, 0.6)}
+    70% {background-color: rgba(241, 143, 129, 0.6)}
+    90% {background-color: rgba(112, 209, 247, 0.6)}
+    to {background-color: rgba(197, 227, 186, 0.6)}
   }
 
   #search {
-    background: rgba(250, 235, 248, 0.4);
+    background: rgba(250, 235, 248, 0.6);
     font-size: 16px;
     height: 55px;
     width: 55px;
@@ -82,7 +83,7 @@ body {
   }
 
 #search:hover {
-  color:  rgb(46, 1, 46);
+  color:  rgb(66, 1, 66);
   animation-play-state: paused;
 }
   
@@ -162,7 +163,36 @@ body {
     border-radius: 15px;
   }
 
+  /* Queries to push orb left as elements close in */
 
+  @media screen and (max-width: 1200px) and (max-height: 850px) {
+    #orb {
+      left: 25%;
+    }
+  } 
+
+  @media screen and (min-width: 1000px) and (max-height: 850px) {  
+    #orb {
+      left: 25vw;
+    }
+  } 
+
+  @media screen and (max-width: 950px) and (max-height: 850px) {
+    #orb {
+      left: 17%;
+    }
+  } 
+
+  @media screen and (max-width: 915px) and (max-height: 775px) {
+    #orb {
+      left: 20%;
+    }
+  } 
+  @media screen and (max-width: 1200px) and (max-height: 600px) {
+    #orb {
+      left: 20%;
+    }
+  } 
 
   @media only screen and (max-width: 1000px) {
     h1 {
@@ -200,7 +230,6 @@ body {
     
     #display {
       justify-content: space;
-
     }
 
     #place {
@@ -208,8 +237,6 @@ body {
     }
 
     #city {
-      /* flex-direction: column;
-      flex-wrap: wrap; */
       font-size: 25px;
     }
 
@@ -227,20 +254,25 @@ body {
     }
 
     #orb {
-      position: absolute;
       bottom: 0px;
       left: -10px;
     }
-
-/* 
-    #grade {
-      font-size: 40px;
-    } */
 
     #message {
       font-size: 26px;
     }
     
+  }
+
+  @media screen and (max-width: 1100px) and (max-height: 725px) {
+    #city {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    #temp {
+      font-size: 40px;
+      margin-right: 10px;
+    }
   }
 
 
@@ -272,6 +304,11 @@ body {
       text-align: left;
     }
 
+    #orb {
+      bottom: 0px;
+      left: -10px;
+    }
+
     #data {
       right: 0px;
       height: 25%;
@@ -285,20 +322,17 @@ body {
       font-size: 24px;
     }
     
-  } */
+  } 
 
-  @media screen and (min-width: 600px;), screen and (max-height: 1000px) {
+
+  @media screen and (min-width: 600px;) and (max-height: 1000px) {
+
     h1 {
       font-size: 60px;
     }
 
     p {
       font-size: 25px;
-    }
-    
-    #display {
-      justify-content: space;
-
     }
 
     #place {
@@ -313,6 +347,11 @@ body {
 
     #temp {
       font-size: 32px;
+    }
+
+    #orb {
+      bottom: 0px;
+      left: -10px;
     }
 
     #data {
@@ -342,20 +381,12 @@ body {
   }
 
   @media screen and (max-height: 600px) {
-    body {
-      background-size: 200vh;
-    }
-
     p {
       font-size: 18px;
     }
 
     #city {
       font-size: 20px;
-    }
-
-    #temp {
-      font-size: 32px;
     }
 
     #grade {
@@ -367,3 +398,129 @@ body {
       font-size: 18px;
     }
   }
+
+
+/* Mobile Media Query */
+
+@media screen and (max-height: 812px) and (max-width: 375px) {
+  h1 {
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: -10px;
+  }
+
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  p {
+    font-size: 12px;
+    }
+
+
+    
+    #zip {
+      font-size: 12px;
+      font-family: "Poiret One", "avenir";
+      color:  rgb(20, 0, 20);
+      text-align: center;
+      height: 20px;
+      margin-bottom: -20px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 0px;
+      border-style: none;
+    }
+  
+    ::placeholder {
+      font-size: 12px;
+    }
+  
+    #search {
+      background: rgba(250, 235, 248, 0.6);
+      font-size: 12px;
+      height: 35px;
+      width: 35px;
+    }
+  
+    #display {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 80vw;
+      height: 80%;
+      margin: 0 auto;
+      align-content: flex-start;
+      background: gray;
+    }
+    
+    #place {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      background: yellow;
+    }
+    
+    #city {
+      font-size: 14px;
+      border-radius: 15px;
+      padding: 10px 15px 10px 15px;
+      background: green;
+    }
+    
+    #temp {
+      font-size: 18px;
+      margin-top: -10px;
+      border-radius: 15px;
+      padding: 20px 15px 20px 15px;
+      width: 35%;
+      background: red;
+    }
+    
+    #data {
+      border-radius: 15px;
+      padding: 5px 15px 5px 15px;
+      height: 50%;
+      margin-top: 40px;
+      background: blue;
+    }
+    
+    /*
+    #orb {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      margin: 0 auto;
+      margin-bottom: -20px;
+      margin-top: 30px;
+      flex-direction: column;
+      align-content: flex-start;
+      background: url(assets_photos/stars.gif);
+      background-position: center;
+      background-size: 90%;
+      height: 50vh;
+      width: 50vh;
+      border-radius: 50%;
+      border: 5px;
+      border-style: solid;
+      border-color: rgba(248, 227, 245, 0.3);
+      opacity: .85;
+    }
+  
+    
+    #grade {
+      padding-top: 10vh;
+      font-size: 70px;
+      text-align: center;
+    }
+    
+    #message {
+      margin: 20px 40px 40px 40px;
+      padding: 10px 5px 10px 5px;
+      font-size: 30px;
+      text-align: center;
+      border-radius: 15px;
+    } */
+
+}

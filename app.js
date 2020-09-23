@@ -27,9 +27,8 @@ search.addEventListener('click', async (e) => {
     cityTitle.innerHTML = `${city}, 
     ${state}`
 
-
+    // For some reason this has to be called right here??
     searchAnimation()
-    // input.classList.add('send')
 
     //Temperature
     const temperature = Math.round(DATA.main.temp)
@@ -91,15 +90,13 @@ search.addEventListener('click', async (e) => {
 })
 
 
-// Animation
+// "blink" effect when search is entered
 function searchAnimation() {
   input.classList.add('send')
-  setTimeout(function () { input.value = '' }, 1000)
+  setTimeout(() => input.value = '', 1000)
 }
 
-
-// ** RESET ANIMATION FUNTION ********
-
+// Reset text in DOM and toggle search animation
 function reset() {
   let displayArea = document.querySelector('#data')
   let searchButton = document.querySelector('#zip')
@@ -207,6 +204,7 @@ function compareData(temperature, wind, clouds, description, humidity) {
   return score
 }
 
+// Assign letter grade based on numeric score
 function gradeScore(score) {
   let grade = ""
   if (score >= 32) {
@@ -270,6 +268,7 @@ function message(grade) {
   return finalMessage
 }
 
+// Add custom messages for certain weather conditions
 function customMessage(score, temp, description) {
   let addMessage = ""
   const niceOut = "it looks like a beautiful evening!"
