@@ -24,8 +24,7 @@ search.addEventListener('click', async (e) => {
     const places = document.querySelector('#place')
     const cityTitle = document.querySelector('#city')
     cityTitle.style.background = `rgba(245, 201, 239, 0.5)`
-    cityTitle.innerHTML = `${city}, 
-    ${state}`
+    cityTitle.innerHTML = `${city}, ${state}`
 
     // For some reason this has to be called right here??
     searchAnimation()
@@ -33,7 +32,8 @@ search.addEventListener('click', async (e) => {
     //Temperature
     const temperature = Math.round(DATA.main.temp)
     let showTemperature = document.querySelector('#temp')
-    showTemperature.style.background = `rgba(245, 201, 239, 0.5)`
+    hotInHere(temperature, showTemperature)
+    // showTemperature.style.background = `rgba(245, 201, 239, 0.5)`
     showTemperature.innerHTML = `${temperature} °F`
 
     // Append location and temperature data
@@ -279,6 +279,23 @@ function customMessage(score, temp, description) {
   return addMessage
 }
 
+
+// Background color for temp pTag changes based on temperature
+function hotInHere(temp, element) {
+  if (temp >= 90) {
+    element.style.background = `rgba(228, 63, 21, 0.5)`
+  } else if (temp < 90 && temp >= 75) {
+    element.style.background = `rgba(240, 141, 11, 0.5)`
+  } else if (temp < 75 && temp >= 65) {
+    element.style.background = `rgba(235, 231, 12, 0.5)`
+  } else if (temp < 65 && temp >= 50) {
+    element.style.background = `rgba(245, 201, 239, 0.5)`
+  } else if (temp < 50 && temp >= 35) {
+    element.style.background = `rgba(28, 218, 154, 0.5)`
+  } else if (temp < 35) {
+    element.style.background = `rgba(7, 110, 194, 0.5)`
+  }
+}
 
 
 // Build score 
