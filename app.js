@@ -23,7 +23,7 @@ search.addEventListener('click', async (e) => {
     // Separate div to append City, State, and Temperature
     const places = document.querySelector('#place')
     const cityTitle = document.querySelector('#city')
-    cityTitle.style.background = `rgba(245, 201, 239, 0.4)`
+    cityTitle.style.background = `rgba(245, 201, 239, 0.5)`
     cityTitle.innerHTML = `${city}, 
     ${state}`
 
@@ -33,7 +33,7 @@ search.addEventListener('click', async (e) => {
     //Temperature
     const temperature = Math.round(DATA.main.temp)
     let showTemperature = document.querySelector('#temp')
-    showTemperature.style.background = `rgba(245, 201, 239, 0.4)`
+    showTemperature.style.background = `rgba(245, 201, 239, 0.5)`
     showTemperature.innerHTML = `${temperature} °F`
 
     // Append location and temperature data
@@ -63,7 +63,7 @@ search.addEventListener('click', async (e) => {
 
     // Append relevant weather data
     const weatherData = document.querySelector('#data')
-    weatherData.style.background = `rgba(245, 201, 239, 0.4)`
+    weatherData.style.background = `rgba(245, 201, 239, 0.5)`
     weatherData.appendChild(showDescription)
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
@@ -101,7 +101,6 @@ function reset() {
   let displayArea = document.querySelector('#data')
   let searchButton = document.querySelector('#zip')
   searchButton.classList.remove('send')
-
   data.innerHTML = null
 }
 
