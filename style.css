@@ -1,6 +1,4 @@
-html, body, #display, #place {
-  overflow: hidden;
-}
+
 
 body {
   background: url(assets_photos/sunset.jpg);
@@ -450,14 +448,15 @@ body {
   
     #display {
       /* overflow: hidden; */
+      object-fit: contain;
       display: flex;
       flex-wrap: wrap;
       width: 90%;
-      height: 200px;
+      /* height: 200px; */
       margin: 0 auto;
       align-content: space-between;
       justify-content: flex-start;
-      background: gray;
+      /* background: gray; */
     }
     
     #place {
