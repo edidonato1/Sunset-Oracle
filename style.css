@@ -416,12 +416,19 @@ body {
 
   h2 {
     font-size: 20px;
-    text-align: center;
+    text-align: right;
   }
   p {
     font-size: 16px;
     }
 
+    @keyframes blink {
+      from {height: 20px}
+      45% {height: 0px}
+      55% {height: 0px}
+      to {height: 20px}
+    }
+  
     #zip {
       font-size: 12px;
       font-family: "Poiret One", "avenir";
@@ -483,10 +490,7 @@ body {
     }
     
     #data {
-      /* display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between; */
+
       font-size: 22px; 
       border-radius: 15px;
       padding: 5px 15px 5px 15px;
@@ -496,21 +500,22 @@ body {
       /* background: blue; */
     }
     
-    /*
+    
     #orb {
-      display: flex;
       position: absolute;
       bottom: 0;
+      left: 0;
       margin: 0 auto;
-      margin-bottom: -20px;
+      /* margin-left: 0px; */
+      /* margin-bottom: -20px; */
       margin-top: 30px;
       flex-direction: column;
       align-content: flex-start;
       background: url(assets_photos/stars.gif);
       background-position: center;
       background-size: 90%;
-      height: 50vh;
-      width: 50vh;
+      height: 45vh;
+      width: 45vh;
       border-radius: 50%;
       border: 5px;
       border-style: solid;
@@ -518,7 +523,7 @@ body {
       opacity: .85;
     }
   
-    
+    /*
     #grade {
       padding-top: 10vh;
       font-size: 70px;
