@@ -17,7 +17,8 @@ These messages will append alongside basic information about the zip the user se
 
 https://openweathermap.org/current
 
-```{
+```
+{
     "coord": {
         "lon": -117.12,
         "lat": 32.76
@@ -126,7 +127,8 @@ Run animation while simultaneously clearing inupt area. setTimeout() waits to cl
 
 The reset() function is called before searchAnimation() in the event listener async function, which removes the animation class '.send' as well as clearing the field for new data to appear on the next search.
 
-```function searchAnimation() {
+```
+function searchAnimation() {
   input.classList.add('send')
   setTimeout(() => input.value = '', 1000)
 }
