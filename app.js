@@ -11,7 +11,7 @@ search.addEventListener('click', async (e) => {
     const RESPONSE = await axios.get(URL);
     const DATA = RESPONSE.data
     reset()
-
+    console.log(DATA)
     // Additional API accepts zip and gives city and state
     const zipURL = `http:api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
@@ -21,7 +21,7 @@ search.addEventListener('click', async (e) => {
     // Separate container to append City, State, and Temperature
     const places = document.querySelector('#place')
     const cityTitle = document.querySelector('#city')
-    cityTitle.style.background = `rgba(245, 201, 239, 0.5)`
+    cityTitle.style.background = `rgba(76, 107, 169, .6)`
     cityTitle.innerHTML = `${city}, ${state}`
 
     // For some reason this has to be called right here??
@@ -36,6 +36,12 @@ search.addEventListener('click', async (e) => {
     // Append location and temperature data
     places.appendChild(cityTitle)
     places.appendChild(showTemperature)
+
+    // Local time of sunset
+    const time = DATA.sys.sunset
+    const timeZone = DATA.timezone
+    const showTime = document.createElement('p')
+    showTime.innerHTML = `Sets at: ${convertTime(time, timeZone)}pm`
 
     // Current weather description
     const description = DATA.weather[0].description
@@ -56,11 +62,12 @@ search.addEventListener('click', async (e) => {
     let wind = Math.round(DATA.wind.speed)
     let deg = DATA.wind.deg
     let showWindSpeed = document.createElement('p')
-    showWindSpeed.innerHTML = `Wind speed: ${wind} mph ${windDirection(deg)}`
+    showWindSpeed.innerHTML = `Wind: ${wind} mph ${windDirection(deg)}`
 
     // Append relevant weather data
     const weatherData = document.querySelector('#data')
-    weatherData.style.background = `rgba(245, 201, 239, 0.5)`
+    weatherData.style.background = `rgba(76, 107, 169, .6)`
+    weatherData.appendChild(showTime)
     weatherData.appendChild(showDescription)
     weatherData.appendChild(showClouds)
     weatherData.appendChild(showHumidity)
@@ -68,6 +75,8 @@ search.addEventListener('click', async (e) => {
 
     // Testing Percentage Score
     const grade = document.querySelector('#grade')
+
+    // score
     let score = compareData(temperature, wind, clouds, description, humidity)
     const percentScore = (score) => Math.round((score / 35) * 100)
     grade.innerHTML = percentScore(score)
@@ -223,6 +232,8 @@ function customMessage(score, temp, description) {
     addMessage += `  However, ${niceOut}`
   } else if (score > 17 && temp > 70 && description == "clear sky") {
     addMessage += `  And, ${niceOut}`
+  } else if (score === 24) {
+    addMessage += `also... nice ^`
   }
   return addMessage
 }
@@ -255,4 +266,14 @@ function hotInHere(temp, element) {
 //    Humidity between 30 and 50 percent --  7 points
 
 // Total score/35
+
+function convertTime(time, timeZone) {
+  let localTime = time + timeZone - 7200
+  let dateObj = new Date(localTime * 1000);
+  let utcString = dateObj.toUTCString();
+  let newTime = utcString.slice(-11, -4, -3)
+  let finalTime = newTime.slice(0, newTime.lastIndexOf(':'))
+  console.log(finalTime + "pm")
+  return finalTime
+}
 

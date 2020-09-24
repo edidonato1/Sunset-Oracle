@@ -17,9 +17,14 @@ body {
   
   h2 {
     text-align: center;
-}
+  }
+
+  h5 {
+    color: rgb(76, 107, 169);
+  }
 
   p {
+  line-height: 90%;
   font-size: 26px;
   }
   
@@ -128,7 +133,6 @@ body {
     height: 50%;
   }
   
-  
   #orb {
     display: flex;
     position: absolute;
@@ -150,7 +154,6 @@ body {
     opacity: .85;
   }
 
-  
   #grade {
     padding-top: 10vh;
     font-size: 70px;

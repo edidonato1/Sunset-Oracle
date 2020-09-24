@@ -143,6 +143,6 @@ function reset() {
 
 ## Change Log
  
- # Switch from letter grade to percentage score
+ ### Switch from letter grade to percentage score
  Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100
 
