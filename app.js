@@ -92,8 +92,6 @@ function searchAnimation() {
 // Reset text in DOM and toggle search animation
 function reset() {
   let displayArea = document.querySelector('#data')
-  // let searchButton = document.querySelector('#zip')
-  // searchButton.classList.remove('send')
   input.classList.remove('send')
   data.innerHTML = null
 }
@@ -238,7 +236,7 @@ function hotInHere(temp, element) {
   } else if (temp < 75 && temp >= 65) {
     element.style.background = `rgba(235, 231, 12, 0.5)`
   } else if (temp < 65 && temp >= 50) {
-    element.style.background = `rgba(245, 201, 239, 0.5)`
+    element.style.background = `rgba(99, 216, 53, 0.5)`
   } else if (temp < 50 && temp >= 35) {
     element.style.background = `rgba(28, 218, 154, 0.5)`
   } else if (temp < 35) {

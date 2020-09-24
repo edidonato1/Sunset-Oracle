@@ -122,6 +122,25 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 
 ## Code Snippet
 
+Run animation while simultaneously clearing inupt area. setTimeout() waits to clear text area until halfway through the animation, when the box is completely "closed", then opens to reveal a fresh input area. 
+
+The reset() function is called before searchAnimation() in the event listener async function, which removes the animation class '.send' as well as clearing the field for new data to appear on the next search.
+
+```function searchAnimation() {
+  input.classList.add('send')
+  setTimeout(() => input.value = '', 1000)
+}
+
+function reset() {
+  let displayArea = document.querySelector('#data')
+  input.classList.remove('send')
+  data.innerHTML = null
+}
+```
 
 
 ## Change Log
+ 
+ # Switch from letter grade to percentage score
+ Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100
+
