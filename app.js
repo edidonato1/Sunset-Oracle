@@ -226,7 +226,7 @@ function finalMessage(score) {
   } else if (score < 32 && score >= 29) {
     message = "Get your camera ready, the odds are in your favor."
   } else if (score < 29 && score >= 26) {
-    message = "If these conditions hold, you'll looking at an awesome sunset tonight!"
+    message = "If these conditions hold, you're looking at an awesome sunset tonight!"
   } else if (score < 26 && score >= 23) {
     message = "There's a chance you'll get a great sunset tonight."
   } else if (score < 23 && score >= 20) {

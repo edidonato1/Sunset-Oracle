@@ -119,18 +119,16 @@ body {
   }
   
   #temp {
+    object-fit: contain;
     font-size: 50px;
     margin-top: -10px;
     border-radius: 15px;
-    padding: 20px 15px 20px 15px;
-    width: 35%;
   }
   
   #data {
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px 15px 5px 15px;
-    height: 50%;
   }
   
   #orb {
@@ -305,7 +303,6 @@ body {
 
     #temp {
       font-size: 25px;
-      text-align: left;
     }
     
     #data {
@@ -427,8 +424,6 @@ body {
     }
   
     #display {
-      object-fit: contain;
-      flex-wrap: wrap;
       width: 100%;
       margin: 0 auto;
       margin-top: 10px;
@@ -437,38 +432,40 @@ body {
     }
 
     #place {
-      align-items: space-around;
+      align-items: flex-start;
     }
     
     #city {
       font-size: 18px;
       border-radius: 15px;
       padding: 10px 15px 10px 15px;
+      margin-right: 5px;
     }
     
 
     #temp {
+      object-fit: contain;
       font-size: 24px;
       margin-top: -10px;
       border-radius: 15px;
       padding: 20px 15px 20px 15px;
-      width: 32%;
     }
     
     #data {
-
+      position: absolute;
+      height: 21%;
+      right: 0px;
       font-size: 22px; 
       border-radius: 15px;
       padding: 5px 15px 5px 15px;
-      height: 65%;
       margin-top: 75px;
-      margin-left: -70px;
+      margin-right: 5px;
     }
     
     #orb {
       left: 0;
       margin: 0 auto;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
       margin-top: 30px;
       height: 45.3vh;
       width: 45.3vh;
