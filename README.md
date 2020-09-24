@@ -84,8 +84,8 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
 - Improve responsiveness and overall page aesthetics -[x]
 - "Crystal ball" styled area for background where sunset "score" will appear -[x]
 - Implement one or more CSS animations -[x]
-- "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set. -[]
-- - I know of one API that returns it in the right format, but in the UTC time zone. -[]
+- "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set. -[x]
+- - I know of one API that returns it in the right format, but in the UTC time zone. -[x]
 
 
 ## Project Schedule
@@ -96,7 +96,7 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
 |Sept 21| Project Approval | Complete 
 |Sept 22| Core Application Structure (HTML, CSS, etc.) | Complete
 |Sept 23| MVP | Complete
-|Sept 24| Post MVP/Styling | Incomplete
+|Sept 24| Post MVP/Styling | Complete
 |Sept 25| Presentations | Incomplete
 
 ## Priority Matrix
@@ -117,8 +117,8 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 | Append Data | M | 2hrs| 1hr  |
 | Flexbox Manipulation  | H | 4hrs| 5hrs  |
 | Responsive Design  | H | 4hrs| 4hrs  |
-| Additional CSS | L | 6hrs| 8hrs  |
-| Total | - -  | 35hrs| - -  |
+| Additional CSS | L | 6hrs| 14hrs  |
+| Total | - -  | 35hrs| 31hrs  |
 
 
 ## Code Snippet
@@ -146,10 +146,8 @@ function reset() {
  ### Switch from letter grade to percentage score
  Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100
 
-
 ### Add time of sunset to weather data
-*** Currently pending approval to avoid plagiarism 
-Not 100% sure if i'll follow through with this feature.  The majority of the algorithm work isn't miine, and I feel like it might add crowd the page a bit.  It does however add a useful element to the functionality and purpose of the app.
+Adds a useful element to the functionality and purpose of the app.
 
 ### Remove custom message
 Was overcrowding the message area.  Didn't add much to the experience.
