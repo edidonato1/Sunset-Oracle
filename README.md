@@ -150,3 +150,6 @@ function reset() {
 ### Add time of sunset to weather data
 *** Currently pending approval to avoid plagiarism 
 Not 100% sure if i'll follow through with this feature.  The majority of the algorithm work isn't miine, and I feel like it might add crowd the page a bit.  It does however add a useful element to the functionality and purpose of the app.
+
+### Remove custom message
+Was overcrowding the message area.  Didn't add much to the experience.

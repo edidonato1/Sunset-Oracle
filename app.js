@@ -67,11 +67,7 @@ search.addEventListener('click', async (e) => {
     // Append relevant weather data
     const weatherData = document.querySelector('#data')
     weatherData.style.background = `rgba(76, 107, 169, .6)`
-    weatherData.appendChild(showTime)
-    weatherData.appendChild(showDescription)
-    weatherData.appendChild(showClouds)
-    weatherData.appendChild(showHumidity)
-    weatherData.appendChild(showWindSpeed)
+    weatherData.append(showTime, showDescription, showClouds, showHumidity, showWindSpeed)
 
     // Testing Percentage Score
     const grade = document.querySelector('#grade')
@@ -85,8 +81,7 @@ search.addEventListener('click', async (e) => {
     const finalScore = compareData(temperature, wind, clouds, description, humidity)
     const messageText = document.querySelector('#message')
     console.log(finalMessage(finalScore))
-    messageText.innerHTML = finalMessage(finalScore) + "<br><br>" + customMessage(score, temperature, description)
-
+    messageText.innerHTML = finalMessage(finalScore)
   } catch (error) {
     console.log(error)
   }
@@ -103,6 +98,35 @@ function reset() {
   let displayArea = document.querySelector('#data')
   input.classList.remove('send')
   data.innerHTML = null
+}
+
+// Change background color for temperature element based on temperature
+function hotInHere(temp, element) {
+  if (temp >= 90) {
+    element.style.background = `rgba(228, 63, 21, 0.5)`
+  } else if (temp < 90 && temp >= 75) {
+    element.style.background = `rgba(240, 141, 11, 0.5)`
+  } else if (temp < 75 && temp >= 65) {
+    element.style.background = `rgba(235, 231, 12, 0.5)`
+  } else if (temp < 65 && temp >= 50) {
+    element.style.background = `rgba(99, 216, 53, 0.5)`
+  } else if (temp < 50 && temp >= 35) {
+    element.style.background = `rgba(28, 218, 154, 0.5)`
+  } else if (temp < 35) {
+    element.style.background = `rgba(7, 110, 194, 0.5)`
+  }
+}
+
+// Convert UNIX time from API to local time at searched location
+// ** Done with base algorightm from https://www.geeksforgeeks.org/how-to-convert-unix-timestamp-to-time-in-javascript/
+// **Slice method to remove seconds borrowed from https://stackoverflow.com/questions/41630068/i-would-like-to-remove-seconds-and-milliseconds-from-my-date/41630118
+function convertTime(time, timeZone) {
+  let localTime = time + timeZone - 7200
+  let dateObj = new Date(localTime * 1000);
+  let utcString = dateObj.toUTCString();
+  let newTime = utcString.slice(-11, -4, -3)
+  let finalTime = newTime.slice(0, newTime.lastIndexOf(':'))
+  return finalTime
 }
 
 // Convert API numerical output (degrees) to compass direction
@@ -224,37 +248,6 @@ function finalMessage(score) {
 }
 
 
-// Add custom messages for certain weather conditions
-function customMessage(score, temp, description) {
-  let addMessage = ""
-  const niceOut = "it looks like a beautiful evening!"
-  if (score <= 17 && temp > 70 && description == "clear sky") {
-    addMessage += `  However, ${niceOut}`
-  } else if (score > 17 && temp > 70 && description == "clear sky") {
-    addMessage += `  And, ${niceOut}`
-  } else if (score === 24) {
-    addMessage += `also... nice ^`
-  }
-  return addMessage
-}
-
-// Change background color for temperature element based on temperature
-function hotInHere(temp, element) {
-  if (temp >= 90) {
-    element.style.background = `rgba(228, 63, 21, 0.5)`
-  } else if (temp < 90 && temp >= 75) {
-    element.style.background = `rgba(240, 141, 11, 0.5)`
-  } else if (temp < 75 && temp >= 65) {
-    element.style.background = `rgba(235, 231, 12, 0.5)`
-  } else if (temp < 65 && temp >= 50) {
-    element.style.background = `rgba(99, 216, 53, 0.5)`
-  } else if (temp < 50 && temp >= 35) {
-    element.style.background = `rgba(28, 218, 154, 0.5)`
-  } else if (temp < 35) {
-    element.style.background = `rgba(7, 110, 194, 0.5)`
-  }
-}
-
 // Score parameters
 
 //  Perfect conditions: 
@@ -266,14 +259,4 @@ function hotInHere(temp, element) {
 //    Humidity between 30 and 50 percent --  7 points
 
 // Total score/35
-
-function convertTime(time, timeZone) {
-  let localTime = time + timeZone - 7200
-  let dateObj = new Date(localTime * 1000);
-  let utcString = dateObj.toUTCString();
-  let newTime = utcString.slice(-11, -4, -3)
-  let finalTime = newTime.slice(0, newTime.lastIndexOf(':'))
-  console.log(finalTime + "pm")
-  return finalTime
-}
 

@@ -4,7 +4,7 @@ body {
   background: url(assets_photos/sunset.jpg);
   background-position: center-right;
   background-size: 190vh;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   color: white;
   font-family: 'Poiret One', 'avenir'
   }
