@@ -69,23 +69,23 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
 ### MVP/PostMVP
 
 #### MVP
-- Input form to accept user zip code
-- Basic HTML structure that greets user to the app, and designated areas where output will appear
-- Application receives input, requests specific data from API
-- - Append specific data to body
-- - Run additional data through a function that assigns a numerical score based on the data for that category
-- - Scores from each category will be compiled to an overall score, that returns and appends an overall grade, along with a message to the user determined by the score.
-- Message area is styled using CSS Flexbox
-- Content scales responsively to viewport size
+- Input form to accept user zip code -[x]
+- Basic HTML structure that greets user to the app, and designated areas where output will appear -[x]
+- Application receives input, requests specific data from API -[x]
+- - Append specific data to body -[x]
+- - Run additional data through a function that assigns a numerical score based on the data for that category -[x]
+- - Scores from each category will be compiled to an overall score, that returns and appends an overall grade, along with a message to the user determined by the score. -[x]
+- Message area is styled using CSS Flexbox -[x]
+- Content scales responsively to viewport size -[x]
 
 
 #### PostMVP  
-- Display results from only one search at a time
-- Improve responsiveness and overall page aesthetics
-- "Crystal ball" styled area for background where sunset "score" will appear
-- Implement one or more CSS animations
-- "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set.
-- - I know of one API that returns it in the right format, but in the UTC time zone.
+- Display results from only one search at a time -[x]
+- Improve responsiveness and overall page aesthetics -[x]
+- "Crystal ball" styled area for background where sunset "score" will appear -[x]
+- Implement one or more CSS animations -[x]
+- "Sunset time" output for OpenWeatherMap returns time in a 10-digit format that I don't recognize. If there's time, I'd like like to figure out how to convert that to a usable unit to display the time the sun will set. -[]
+- - I know of one API that returns it in the right format, but in the UTC time zone. -[]
 
 
 ## Project Schedule
@@ -146,3 +146,7 @@ function reset() {
  ### Switch from letter grade to percentage score
  Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100
 
+
+### Add time of sunset to weather data
+*** Currently pending approval to avoid plagiarism 
+Not 100% sure if i'll follow through with this feature.  The majority of the algorithm work isn't miine, and I feel like it might add crowd the page a bit.  It does however add a useful element to the functionality and purpose of the app.
