@@ -93,8 +93,8 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
 |---|---| ---|
 |Sept 18-21| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |Sept 21| Project Approval | Complete 
-|Sept 22| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Sept 23| MVP | Incomplete
+|Sept 22| Core Application Structure (HTML, CSS, etc.) | Complete
+|Sept 23| MVP | Complete
 |Sept 24| Post MVP/Styling | Incomplete
 |Sept 25| Presentations | Incomplete
 
@@ -114,9 +114,9 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 | Assign /Compare Scores | H | 8hrs| 3hrs |
 | Append Results | H | 2.5hrs| 1hr  |
 | Append Data | M | 2hrs| 1hr  |
-| Flexbox Manipulation  | H | 4hrs| - -  |
-| Responsive Design  | H | 4hrs| - -  |
-| Additional CSS | L | 6hrs| - -  |
+| Flexbox Manipulation  | H | 4hrs| 5hrs  |
+| Responsive Design  | H | 4hrs| 4hrs  |
+| Additional CSS | L | 6hrs| 8hrs  |
 | Total | - -  | 35hrs| - -  |
 
 

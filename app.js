@@ -1,3 +1,4 @@
+
 const input = document.querySelector('#zip')
 const search = document.querySelector('#search')
 
@@ -9,7 +10,6 @@ search.addEventListener('click', async (e) => {
     const URL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zip}&appid=2f4f1d57fc6cf6ee573d93ac14c4a050`
     const RESPONSE = await axios.get(URL);
     const DATA = RESPONSE.data
-    console.log(DATA)
     reset()
 
     // Additional API accepts zip and gives city and state
@@ -18,7 +18,7 @@ search.addEventListener('click', async (e) => {
     const city = zipRESPONSE.data.places[0]['place name']
     const state = zipRESPONSE.data.places[0].state
 
-    // Separate div to append City, State, and Temperature
+    // Separate container to append City, State, and Temperature
     const places = document.querySelector('#place')
     const cityTitle = document.querySelector('#city')
     cityTitle.style.background = `rgba(245, 201, 239, 0.5)`
@@ -66,24 +66,14 @@ search.addEventListener('click', async (e) => {
     weatherData.appendChild(showHumidity)
     weatherData.appendChild(showWindSpeed)
 
-    // *** Testing Percentage Score  **** DELETE LATER IF UNUSED
-    // vvvv
-
-
-
-
+    // Testing Percentage Score
     const grade = document.querySelector('#grade')
     let score = compareData(temperature, wind, clouds, description, humidity)
-
     const percentScore = (score) => Math.round((score / 35) * 100)
     grade.innerHTML = percentScore(score)
-    console.log(percentScore(score))
-
-
-    const finalScore = compareData(temperature, wind, clouds, description, humidity)
-
 
     // Compare Data and Score to compile message
+    const finalScore = compareData(temperature, wind, clouds, description, humidity)
     const messageText = document.querySelector('#message')
     console.log(finalMessage(finalScore))
     messageText.innerHTML = finalMessage(finalScore) + "<br><br>" + customMessage(score, temperature, description)
@@ -92,7 +82,6 @@ search.addEventListener('click', async (e) => {
     console.log(error)
   }
 })
-
 
 // "blink" effect when search is entered
 function searchAnimation() {
@@ -103,8 +92,9 @@ function searchAnimation() {
 // Reset text in DOM and toggle search animation
 function reset() {
   let displayArea = document.querySelector('#data')
-  let searchButton = document.querySelector('#zip')
-  searchButton.classList.remove('send')
+  // let searchButton = document.querySelector('#zip')
+  // searchButton.classList.remove('send')
+  input.classList.remove('send')
   data.innerHTML = null
 }
 
@@ -131,7 +121,7 @@ function windDirection(deg) {
   return direction
 }
 
-// Returns score based on API output
+// Return cumulative score based on API output
 function compareData(temperature, wind, clouds, description, humidity) {
   let score = 0;
 
@@ -169,10 +159,14 @@ function compareData(temperature, wind, clouds, description, humidity) {
   // Specific descriptor bonuses & detractions
   if (description == "scattered clouds" || description == "broken clouds") {
     score += 5
-  } else if (description == "light rain " || description == "moderate rain" || description == "heavy rain") {
+  } else if (description == "clear sky") {
+    score += 3
+  } else if (description == "haze" || description == "smoke") {
     score -= 2
-  } else if (description == "haze") {
-    score += 2
+  } else if (description == "light rain ") {
+    score += 1
+  } else if (description == "moderate rain" || description == "heavy rain") {
+    score -= 1
   }
 
   // Humidity Scores
@@ -193,7 +187,7 @@ function compareData(temperature, wind, clouds, description, humidity) {
 }
 
 
-
+// Return custom message for ranges of scores
 function finalMessage(score) {
   let message = ""
   if (score >= 32) {
@@ -211,7 +205,7 @@ function finalMessage(score) {
   } else if (score < 17 && score >= 14) {
     message = "Not a bad chance. You could get lucky!"
   } else if (score < 14 && score >= 11) {
-    message = "Chances are low, but you could still get a nice sunset this evening!"
+    message = "Chances are low, but there's still hope!"
   } else if (score < 11 && score >= 8) {
     message = "A stunning sunset doesn't look likely, but conditions could change."
   } else if (score < 8 && score >= 5) {
@@ -235,7 +229,7 @@ function customMessage(score, temp, description) {
   return addMessage
 }
 
-// Background color for temp pTag changes based on temperature
+// Change background color for temperature element based on temperature
 function hotInHere(temp, element) {
   if (temp >= 90) {
     element.style.background = `rgba(228, 63, 21, 0.5)`
@@ -252,8 +246,7 @@ function hotInHere(temp, element) {
   }
 }
 
-
-// Build score 
+// Score parameters
 
 //  Perfect conditions: 
 //    Moderate temperature (70-90) -- 3 points
@@ -264,18 +257,4 @@ function hotInHere(temp, element) {
 //    Humidity between 30 and 50 percent --  7 points
 
 // Total score/35
-
-
-// Possible cloud conditions: 
-
-// main: "Clear" description: "clear sky"
-// main: "Clouds" decription: "scattered clouds"
-// main: "Smoke" description: "smoke"
-// main: "Clouds" description: "overcast clouds"
-// main: "Rain" description: "light rain"
-// main: "Rain" description: "heavy intensity rain"
-// main: "Haze" description: "haze"
-// main: "Clouds" description: "few clouds"
-
-
 

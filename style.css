@@ -17,7 +17,6 @@ body {
   
   h2 {
     text-align: center;
-  
 }
 
   p {
@@ -167,7 +166,7 @@ body {
     border-radius: 15px;
   }
 
-  /* Queries to push orb left as elements close in */
+  /* Push orb left as elements close in */
 
    @media screen and (max-width: 1200px) and (max-height: 850px) {
     #orb {
@@ -326,9 +325,7 @@ body {
     #message {
       font-size: 24px;
     }
-    
   } 
-
 
   @media screen and (min-width: 600px) and (max-height: 1000px) {
 
@@ -368,17 +365,6 @@ body {
     }
 
   } 
-/* 
-  @media screen and (max-height: 800px) {
-    #message {
-      font-size: 24px;
-    }
-
-    #grade {
-      font-size: 70px;
-      padding-top: 50px;
-    }
-  } */
 
   @media screen and (max-height: 600px) {
     p {
@@ -461,19 +447,18 @@ body {
     }
     
     #city {
-      font-size: 20px;
+      font-size: 18px;
       border-radius: 15px;
       padding: 10px 15px 10px 15px;
-      /* background: green; */
     }
     
+
     #temp {
       font-size: 26px;
       margin-top: -10px;
       border-radius: 15px;
       padding: 20px 15px 20px 15px;
       width: 32%;
-      /* background: red; */
     }
     
     #data {
@@ -483,7 +468,7 @@ body {
       padding: 5px 15px 5px 15px;
       height: 65%;
       margin-top: 75px;
-      margin-left: -60px;
+      margin-left: -70px;
     }
     
     #orb {
