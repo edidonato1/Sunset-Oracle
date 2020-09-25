@@ -18,7 +18,7 @@ search.addEventListener('click', async (e) => {
     reset()
 
     // Additional API accepts zip and gives city and state
-    const zipURL = `https:api.zippopotam.us/us/${zip}`
+    const zipURL = `https://api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
     const city = zipRESPONSE.data.places[0]['place name']
     const state = zipRESPONSE.data.places[0].state
