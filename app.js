@@ -81,6 +81,11 @@ search.addEventListener('click', async (e) => {
     console.log(finalMessage(finalScore))
     messageText.innerHTML = finalMessage(finalScore)
   } catch (error) {
+    reset()
+    const cityTitle = document.querySelector('#city')
+    cityTitle.innerHTML = `Please enter a valid zip code`
+    cityTitle.style.background = `rgba(76, 107, 169, .6)`
+    weatherData.append(cityTitle)
     console.log(error)
   }
 })
@@ -94,8 +99,12 @@ function searchAnimation() {
 // Reset text in DOM and toggle search animation
 function reset() {
   let displayArea = document.querySelector('#data')
+  // let displayArea = document.querySelector('#display')
+  const places = document.querySelector('#place')
+  let showTemperature = document.querySelector('#temp')
   input.classList.remove('send')
-  data.innerHTML = null
+  showTemperature.innerHTML = null
+  displayArea.innerHTML = null
 }
 
 // Change background color for temperature element based on temperature

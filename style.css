@@ -171,7 +171,7 @@ body {
   }
 
   #grade {
-    padding-top: 15%;
+    padding-top: 20%;
     font-size: 70px;
     text-align: center;
   }
@@ -275,7 +275,7 @@ body {
 
     #orb {
       bottom: 0px;
-      left: -10px;
+      left: 0px;
     }
 
     #message {
@@ -328,7 +328,7 @@ body {
 
     #orb {
       bottom: 0px;
-      left: -10px;
+      left: 0px;
     }
 
     #message {
@@ -380,7 +380,7 @@ body {
   }
 
 
-/* Mobile Media Query */
+/* Mobile Media Query  (iPhone X) */
 
 @media screen and (max-height: 812px) and (max-width: 375px) {
   body {
