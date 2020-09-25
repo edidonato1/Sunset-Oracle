@@ -123,11 +123,7 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_%20priority_ma
 
 ## Code Snippet
 
-Run animation while simultaneously clearing inupt area. setTimeout() waits to clear text area until halfway through the animation, when the box is completely "closed", then opens to reveal a fresh input area. 
-
-The reset() function is called before searchAnimation() in the event listener async function, which removes the animation class '.send' as well as clearing the field for new data to appear on the next search.
-
-Snippet fromt he end of the asynchronous event listner expression
+Snippet from the end of the asynchronous event listener expression:
 ```
     // Compare Data and Score to compile message
     const finalScore = compareData(temperature, wind, clouds, description, humidity)
@@ -149,7 +145,7 @@ Snippet fromt he end of the asynchronous event listner expression
 })
 ```
 
-Use setTimeout() to give effect that text from input area is erased by the "blink" animation
+Use setTimeout() to give effect that text from input area is erased by the "blink" animation:
 ```
 // "blink" effect when search is entered
 function searchAnimation() {
@@ -170,6 +166,9 @@ function reset() {
  
  ### Switch from letter grade to percentage score
  Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100.
+
+ ### Render background color for temperature display that changes based on the temp.
+ Adds contrast to the aesthetic of the page.
 
 ### Add time of sunset to weather data
 Adds a useful element to the functionality and purpose of the app.
