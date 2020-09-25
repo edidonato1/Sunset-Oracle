@@ -106,7 +106,6 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    /* justify-content: flex-start; */
   }
   
   #city {
@@ -134,21 +133,6 @@ body {
     from {opacity: 1}
     to {opacity: 0}
   }
-
-.dissolve {
-  animation-name: dissolve;
-  animation-duration: 1s;
-}
-
-  @keyframes reform {
-    from {opacity: 0}
-    to {opacity: 1}
-  }
-
-.reform {
-  animation-name: reform;
-  animation-duration: 1s
-}
   
   #orb {
     display: flex;

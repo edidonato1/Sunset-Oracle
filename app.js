@@ -2,10 +2,10 @@
 // Define global variables
 const input = document.querySelector('#zip')
 const search = document.querySelector('#search')
+const places = document.querySelector('#place')
 const showTemperature = document.querySelector('#temp')
 const cityTitle = document.querySelector('#city')
 const weatherData = document.querySelector('#data')
-const places = document.querySelector('#place')
 
 
 search.addEventListener('click', async (e) => {
@@ -79,7 +79,6 @@ search.addEventListener('click', async (e) => {
     // Compare Data and Score to compile message
     const finalScore = compareData(temperature, wind, clouds, description, humidity)
     const messageText = document.querySelector('#message')
-    console.log(finalMessage(finalScore))
     messageText.innerHTML = finalMessage(finalScore)
   } catch (error) {
     // Clear display / append error message
@@ -126,8 +125,8 @@ function hotInHere(temp, element) {
 }
 
 // Convert UNIX time from API to local time at searched location
-// ** Done with base algorightm from https://www.geeksforgeeks.org/how-to-convert-unix-timestamp-to-time-in-javascript/
-// **Slice method to remove seconds borrowed from https://stackoverflow.com/questions/41630068/i-would-like-to-remove-seconds-and-milliseconds-from-my-date/41630118
+// ** Done with base algorithm from https://www.geeksforgeeks.org/how-to-convert-unix-timestamp-to-time-in-javascript/
+// ** Slice method to remove seconds borrowed from https://stackoverflow.com/questions/41630068/i-would-like-to-remove-seconds-and-milliseconds-from-my-date/41630118
 function convertTime(time, timeZone) {
   let localTime = time + timeZone - 7200
   let dateObj = new Date(localTime * 1000);
@@ -238,7 +237,7 @@ function finalMessage(score) {
   } else if (score < 26 && score >= 23) {
     message = "There's a chance you'll get a great sunset tonight."
   } else if (score < 23 && score >= 20) {
-    message = "No promises, but it your conditions look pretty good."
+    message = "No promises, but your conditions look pretty good."
   } else if (score < 20 && score >= 17) {
     message = "Don't get your hopes up, but we still like your odds."
   } else if (score < 17 && score >= 14) {
@@ -254,17 +253,3 @@ function finalMessage(score) {
   }
   return message
 }
-
-
-// Score parameters
-
-//  Perfect conditions: 
-//    Moderate temperature (70-90) -- 3 points
-//    Low wind (< 10) -- 10 points
-//    Cloud coverage between 30 and 70 percent -- 10 points
-//    description - scattered clouds -- 5 points
-//    No fog
-//    Humidity between 30 and 50 percent --  7 points
-
-// Total score/35
-
