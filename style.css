@@ -171,7 +171,7 @@ body {
   }
 
   #grade {
-    padding-top: 20%;
+    padding-top: 12vh;
     font-size: 70px;
     text-align: center;
   }
@@ -289,6 +289,7 @@ body {
       font-size: 30px;
       margin-right: 10px;
     }
+
     #temp {
       font-size: 40px;
       margin-right: 10px;
@@ -358,6 +359,11 @@ body {
       height: 50%;
       margin-top: 40px;
     }
+
+    #grade {
+      padding-top: 10vh;
+    }
+    
 
   } 
 
