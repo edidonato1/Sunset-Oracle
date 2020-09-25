@@ -11,7 +11,7 @@ search.addEventListener('click', async (e) => {
     const RESPONSE = await axios.get(URL);
     const DATA = RESPONSE.data
     reset()
-    console.log(DATA)
+
     // Additional API accepts zip and gives city and state
     const zipURL = `http:api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
@@ -24,7 +24,7 @@ search.addEventListener('click', async (e) => {
     cityTitle.style.background = `rgba(76, 107, 169, .6)`
     cityTitle.innerHTML = `${city}, ${state}`
 
-    // For some reason this has to be called right here??
+    // Call animation for input field
     searchAnimation()
 
     //Temperature
@@ -69,10 +69,8 @@ search.addEventListener('click', async (e) => {
     weatherData.style.background = `rgba(76, 107, 169, .6)`
     weatherData.append(showTime, showDescription, showClouds, showHumidity, showWindSpeed)
 
-    // Testing Percentage Score
+    // Create percentage-based score
     const grade = document.querySelector('#grade')
-
-    // score
     let score = compareData(temperature, wind, clouds, description, humidity)
     const percentScore = (score) => Math.round((score / 35) * 100)
     grade.innerHTML = percentScore(score)
