@@ -7,7 +7,7 @@ const showTemperature = document.querySelector('#temp')
 const cityTitle = document.querySelector('#city')
 const weatherData = document.querySelector('#data')
 
-
+// API search function
 search.addEventListener('click', async (e) => {
   e.preventDefault()
   let zip = input.value
