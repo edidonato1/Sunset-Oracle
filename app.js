@@ -12,13 +12,13 @@ search.addEventListener('click', async (e) => {
   e.preventDefault()
   let zip = input.value
   try {
-    const URL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zip}&appid=2f4f1d57fc6cf6ee573d93ac14c4a050`
+    const URL = `https://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zip}&appid=2f4f1d57fc6cf6ee573d93ac14c4a050`
     const RESPONSE = await axios.get(URL);
     const DATA = RESPONSE.data
     reset()
 
     // Additional API accepts zip and gives city and state
-    const zipURL = `http:api.zippopotam.us/us/${zip}`
+    const zipURL = `https:api.zippopotam.us/us/${zip}`
     const zipRESPONSE = await axios.get(zipURL);
     const city = zipRESPONSE.data.places[0]['place name']
     const state = zipRESPONSE.data.places[0].state
