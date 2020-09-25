@@ -127,16 +127,41 @@ Run animation while simultaneously clearing inupt area. setTimeout() waits to cl
 
 The reset() function is called before searchAnimation() in the event listener async function, which removes the animation class '.send' as well as clearing the field for new data to appear on the next search.
 
+Snippet fromt he end of the asynchronous event listner expression
 ```
+    // Compare Data and Score to compile message
+    const finalScore = compareData(temperature, wind, clouds, description, humidity)
+    const messageText = document.querySelector('#message')
+    console.log(finalMessage(finalScore))
+    messageText.innerHTML = finalMessage(finalScore)
+  } catch (error) {
+    // Clear display / append error message
+    if (error.toString().includes('404')) {
+      reset()
+      cityTitle.innerHTML = `Please enter a valid zip code`
+      cityTitle.style.background = `rgba(76, 107, 169, .6)`
+      showTemperature.style.background = 'none'
+      weatherData.style.background = 'none'
+      places.append(cityTitle)
+    }
+    console.log(error)
+  }
+})
+```
+
+Use setTimeout() to give effect that text from input area is erased by the "blink" animation
+```
+// "blink" effect when search is entered
 function searchAnimation() {
   input.classList.add('send')
   setTimeout(() => input.value = '', 1000)
 }
 
+// Reset text in DOM and toggle search animation
 function reset() {
-  let displayArea = document.querySelector('#data')
   input.classList.remove('send')
-  data.innerHTML = null
+  showTemperature.innerHTML = null
+  weatherData.innerHTML = null
 }
 ```
 
@@ -144,10 +169,13 @@ function reset() {
 ## Change Log
  
  ### Switch from letter grade to percentage score
- Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100
+ Feels more legitimate  when score is presented to user as product of computation rather than an artibrary letter grade. Simple Math.round and a little math returns a clean score out of 100.
 
 ### Add time of sunset to weather data
 Adds a useful element to the functionality and purpose of the app.
 
 ### Remove custom message
 Was overcrowding the message area.  Didn't add much to the experience.
+
+### Add error message 
+Able to append error message, targeting 404 errors for data that isn't found. In other words, when an invalid zip code is entered, the "catch" identifies this error and notifies the user to use a valid zip code.  This alert fits into the aesthetics of the page.
