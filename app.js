@@ -1,6 +1,11 @@
 
+// Define global variables
 const input = document.querySelector('#zip')
 const search = document.querySelector('#search')
+const showTemperature = document.querySelector('#temp')
+const cityTitle = document.querySelector('#city')
+const weatherData = document.querySelector('#data')
+const places = document.querySelector('#place')
 
 
 search.addEventListener('click', async (e) => {
@@ -19,8 +24,6 @@ search.addEventListener('click', async (e) => {
     const state = zipRESPONSE.data.places[0].state
 
     // Separate container to append City, State, and Temperature
-    const places = document.querySelector('#place')
-    const cityTitle = document.querySelector('#city')
     cityTitle.style.background = `rgba(76, 107, 169, .6)`
     cityTitle.innerHTML = `${city}, ${state}`
 
@@ -29,7 +32,6 @@ search.addEventListener('click', async (e) => {
 
     //Temperature
     const temperature = Math.round(DATA.main.temp)
-    let showTemperature = document.querySelector('#temp')
     hotInHere(temperature, showTemperature)
     showTemperature.innerHTML = `${temperature} °F`
 
@@ -65,7 +67,6 @@ search.addEventListener('click', async (e) => {
     showWindSpeed.innerHTML = `Wind: ${wind} mph ${windDirection(deg)}`
 
     // Append relevant weather data
-    const weatherData = document.querySelector('#data')
     weatherData.style.background = `rgba(76, 107, 169, .6)`
     weatherData.append(showTime, showDescription, showClouds, showHumidity, showWindSpeed)
 
@@ -81,11 +82,15 @@ search.addEventListener('click', async (e) => {
     console.log(finalMessage(finalScore))
     messageText.innerHTML = finalMessage(finalScore)
   } catch (error) {
-    reset()
-    const cityTitle = document.querySelector('#city')
-    cityTitle.innerHTML = `Please enter a valid zip code`
-    cityTitle.style.background = `rgba(76, 107, 169, .6)`
-    weatherData.append(cityTitle)
+    // Clear display / append error message
+    if (error.toString().includes('404')) {
+      reset()
+      cityTitle.innerHTML = `Please enter a valid zip code`
+      cityTitle.style.background = `rgba(76, 107, 169, .6)`
+      showTemperature.style.background = 'none'
+      weatherData.style.background = 'none'
+      places.append(cityTitle)
+    }
     console.log(error)
   }
 })
@@ -98,13 +103,9 @@ function searchAnimation() {
 
 // Reset text in DOM and toggle search animation
 function reset() {
-  let displayArea = document.querySelector('#data')
-  // let displayArea = document.querySelector('#display')
-  const places = document.querySelector('#place')
-  let showTemperature = document.querySelector('#temp')
   input.classList.remove('send')
   showTemperature.innerHTML = null
-  displayArea.innerHTML = null
+  weatherData.innerHTML = null
 }
 
 // Change background color for temperature element based on temperature
