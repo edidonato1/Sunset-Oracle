@@ -97,7 +97,7 @@ https://github.com/edidonato1/catch_the_sunset/tree/master/assets_wireframes
 |Sept 22| Core Application Structure (HTML, CSS, etc.) | Complete
 |Sept 23| MVP | Complete
 |Sept 24| Post MVP/Styling | Complete
-|Sept 25| Presentations | Incomplete
+|Sept 25| Presentations | Complete
 
 ## Priority Matrix
 
